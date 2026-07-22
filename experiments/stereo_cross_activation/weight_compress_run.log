@@ -253,3 +253,242 @@
   [heal] step 120 loss=6.3447 trainKL=1.7411 (197s)
 /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
   warnings.warn('resource_tracker: There appear to be %d '
+
+=== RESUME heal 2026-07-22 20:06:41 ===
+[device] mps
+[basis] bases_cache_soft_distill.npz: V (768, 768), P = V[:, :256] (frozen)
+/Users/motonishikoudai/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+[eval corpus] wikitext-2-raw-v1(test): 40 x 256
+
+=== RESUME heal 2026-07-22 20:07:34 (harness-bg) ===
+[device] mps
+[basis] bases_cache_soft_distill.npz: V (768, 768), P = V[:, :256] (frozen)
+/Users/motonishikoudai/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+[eval corpus] wikitext-2-raw-v1(test): 40 x 256
+[student] loaded kl_distill_student_r256.pt
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:422: RuntimeWarning: divide by zero encountered in matmul
+  q1 = ones - P @ (P.T @ ones)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:422: RuntimeWarning: overflow encountered in matmul
+  q1 = ones - P @ (P.T @ ones)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:422: RuntimeWarning: invalid value encountered in matmul
+  q1 = ones - P @ (P.T @ ones)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:426: RuntimeWarning: divide by zero encountered in matmul
+  s = Phat.T @ ones                                  # (257,)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:426: RuntimeWarning: overflow encountered in matmul
+  s = Phat.T @ ones                                  # (257,)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:426: RuntimeWarning: invalid value encountered in matmul
+  s = Phat.T @ ones                                  # (257,)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:427: RuntimeWarning: divide by zero encountered in matmul
+  pbar = (P.T @ ones) / D                            # (256,)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:427: RuntimeWarning: overflow encountered in matmul
+  pbar = (P.T @ ones) / D                            # (256,)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:427: RuntimeWarning: invalid value encountered in matmul
+  pbar = (P.T @ ones) / D                            # (256,)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:468: RuntimeWarning: divide by zero encountered in matmul
+  d_attn = (b_cp - mean_mid) @ P          # h @ P carried in fwd
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:468: RuntimeWarning: overflow encountered in matmul
+  d_attn = (b_cp - mean_mid) @ P          # h @ P carried in fwd
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:468: RuntimeWarning: invalid value encountered in matmul
+  d_attn = (b_cp - mean_mid) @ P          # h @ P carried in fwd
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:479: RuntimeWarning: divide by zero encountered in matmul
+  tgt.B_attn.copy_(t32(W_cp @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:479: RuntimeWarning: overflow encountered in matmul
+  tgt.B_attn.copy_(t32(W_cp @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:479: RuntimeWarning: invalid value encountered in matmul
+  tgt.B_attn.copy_(t32(W_cp @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:483: RuntimeWarning: divide by zero encountered in matmul
+  tgt.A2.copy_(t32(Phat.T @ (g2[:, None] * W_fc)))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:483: RuntimeWarning: overflow encountered in matmul
+  tgt.A2.copy_(t32(Phat.T @ (g2[:, None] * W_fc)))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:483: RuntimeWarning: invalid value encountered in matmul
+  tgt.A2.copy_(t32(Phat.T @ (g2[:, None] * W_fc)))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:484: RuntimeWarning: divide by zero encountered in matmul
+  tgt.r2.copy_(t32((v2 * g2) @ W_fc))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:484: RuntimeWarning: overflow encountered in matmul
+  tgt.r2.copy_(t32((v2 * g2) @ W_fc))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:484: RuntimeWarning: invalid value encountered in matmul
+  tgt.r2.copy_(t32((v2 * g2) @ W_fc))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:485: RuntimeWarning: divide by zero encountered in matmul
+  tgt.b2.copy_(t32(bln2 @ W_fc + b_fc))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:485: RuntimeWarning: overflow encountered in matmul
+  tgt.b2.copy_(t32(bln2 @ W_fc + b_fc))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:485: RuntimeWarning: invalid value encountered in matmul
+  tgt.b2.copy_(t32(bln2 @ W_fc + b_fc))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:486: RuntimeWarning: divide by zero encountered in matmul
+  tgt.vhat2.copy_(t32(Phat.T @ v2))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:486: RuntimeWarning: overflow encountered in matmul
+  tgt.vhat2.copy_(t32(Phat.T @ v2))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:486: RuntimeWarning: invalid value encountered in matmul
+  tgt.vhat2.copy_(t32(Phat.T @ v2))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:488: RuntimeWarning: divide by zero encountered in matmul
+  tgt.B_mlp.copy_(t32(W_mcp @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:488: RuntimeWarning: overflow encountered in matmul
+  tgt.B_mlp.copy_(t32(W_mcp @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:488: RuntimeWarning: invalid value encountered in matmul
+  tgt.B_mlp.copy_(t32(W_mcp @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:489: RuntimeWarning: divide by zero encountered in matmul
+  tgt.d_mlp.copy_(t32((b_mcp + mean_mid - mean_out) @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:489: RuntimeWarning: overflow encountered in matmul
+  tgt.d_mlp.copy_(t32((b_mcp + mean_mid - mean_out) @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:489: RuntimeWarning: invalid value encountered in matmul
+  tgt.d_mlp.copy_(t32((b_mcp + mean_mid - mean_out) @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:473: RuntimeWarning: divide by zero encountered in matmul
+  tgt.A1.copy_(t32(Phat.T @ (g1[:, None] * W_att)))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:473: RuntimeWarning: overflow encountered in matmul
+  tgt.A1.copy_(t32(Phat.T @ (g1[:, None] * W_att)))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:473: RuntimeWarning: invalid value encountered in matmul
+  tgt.A1.copy_(t32(Phat.T @ (g1[:, None] * W_att)))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:474: RuntimeWarning: divide by zero encountered in matmul
+  tgt.r1.copy_(t32((v1 * g1) @ W_att))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:474: RuntimeWarning: overflow encountered in matmul
+  tgt.r1.copy_(t32((v1 * g1) @ W_att))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:474: RuntimeWarning: invalid value encountered in matmul
+  tgt.r1.copy_(t32((v1 * g1) @ W_att))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:475: RuntimeWarning: divide by zero encountered in matmul
+  tgt.b1.copy_(t32(bln1 @ W_att + b_att))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:475: RuntimeWarning: overflow encountered in matmul
+  tgt.b1.copy_(t32(bln1 @ W_att + b_att))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:475: RuntimeWarning: invalid value encountered in matmul
+  tgt.b1.copy_(t32(bln1 @ W_att + b_att))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:476: RuntimeWarning: divide by zero encountered in matmul
+  tgt.vhat1.copy_(t32(Phat.T @ v1))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:476: RuntimeWarning: overflow encountered in matmul
+  tgt.vhat1.copy_(t32(Phat.T @ v1))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:476: RuntimeWarning: invalid value encountered in matmul
+  tgt.vhat1.copy_(t32(Phat.T @ v1))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:478: RuntimeWarning: divide by zero encountered in matmul
+  d_attn = (b_cp + mean_in - mean_mid) @ P
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:478: RuntimeWarning: overflow encountered in matmul
+  d_attn = (b_cp + mean_in - mean_mid) @ P
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:478: RuntimeWarning: invalid value encountered in matmul
+  d_attn = (b_cp + mean_in - mean_mid) @ P
+[data] train seqs: 8847 (need 16000; cycles if short)
+[data] val slice: 16 x 256
+[heal] trainable params: 69,073,152 (P & geometry frozen as buffers)
+[heal] step 0 (folded, unhealed): val KL=1.9649 agr=0.3000 ppl=280.6
+  [heal] step 20 loss=8.1332 trainKL=3.2712 (25s)
+  [heal] step 40 loss=7.4151 trainKL=2.6792 (52s)
+  [heal] step 60 loss=6.9253 trainKL=2.2381 (80s)
+  [heal] step 80 loss=6.6452 trainKL=1.9709 (118s)
+  [heal] step 100 loss=6.4922 trainKL=1.8293 (162s)
+[heal] step 100: val KL=1.3091 agr=0.4224 ppl=125.49 acc=0.2203 (164s)
+  [heal] step 120 loss=6.3506 trainKL=1.7463 (211s)
+  [heal] step 140 loss=6.2913 trainKL=1.6600 (255s)
+  [heal] step 160 loss=6.2008 trainKL=1.5943 (299s)
+  [heal] step 180 loss=6.1695 trainKL=1.5621 (345s)
+  [heal] step 200 loss=6.1604 trainKL=1.5163 (398s)
+[heal] step 200: val KL=1.1783 agr=0.4451 ppl=109.47 acc=0.2289 (400s)
+  [heal] step 220 loss=6.0762 trainKL=1.4688 (450s)
+  [heal] step 240 loss=6.0257 trainKL=1.4533 (499s)
+  [heal] step 260 loss=6.0085 trainKL=1.4106 (544s)
+  [heal] step 280 loss=6.0185 trainKL=1.4132 (593s)
+  [heal] step 300 loss=5.9800 trainKL=1.3819 (638s)
+[heal] step 300: val KL=1.1124 agr=0.4580 ppl=101.70 acc=0.2385 (640s)
+  [heal] step 320 loss=5.9346 trainKL=1.3712 (686s)
+  [heal] step 340 loss=5.9259 trainKL=1.3502 (730s)
+  [heal] step 360 loss=5.8770 trainKL=1.3318 (775s)
+  [heal] step 380 loss=5.9033 trainKL=1.3151 (822s)
+  [heal] step 400 loss=5.9211 trainKL=1.3171 (868s)
+[heal] step 400: val KL=1.0711 agr=0.4678 ppl=99.07 acc=0.2412 (870s)
+  [heal] step 420 loss=5.8492 trainKL=1.2723 (915s)
+  [heal] step 440 loss=5.8717 trainKL=1.2710 (960s)
+  [heal] step 460 loss=5.8376 trainKL=1.2690 (1008s)
+  [heal] step 480 loss=5.8331 trainKL=1.2456 (1053s)
+  [heal] step 500 loss=5.8065 trainKL=1.2519 (1099s)
+[heal] step 500: val KL=1.0423 agr=0.4761 ppl=95.72 acc=0.2449 (1101s)
+  [heal] step 520 loss=5.8053 trainKL=1.2292 (1147s)
+  [heal] step 540 loss=5.7428 trainKL=1.1969 (1191s)
+  [heal] step 560 loss=5.7868 trainKL=1.2001 (1235s)
+  [heal] step 580 loss=5.7618 trainKL=1.1947 (1282s)
+  [heal] step 600 loss=5.8001 trainKL=1.1928 (1328s)
+[heal] step 600: val KL=1.0089 agr=0.4844 ppl=92.20 acc=0.2478 (1330s)
+  [heal] step 620 loss=5.7369 trainKL=1.1736 (1375s)
+  [heal] step 640 loss=5.7315 trainKL=1.1723 (1420s)
+  [heal] step 660 loss=5.7679 trainKL=1.1694 (1466s)
+  [heal] step 680 loss=5.7402 trainKL=1.1670 (1511s)
+  [heal] step 700 loss=5.6718 trainKL=1.1468 (1558s)
+[heal] step 700: val KL=0.9907 agr=0.4890 ppl=90.70 acc=0.2510 (1560s)
+  [heal] step 720 loss=5.7253 trainKL=1.1523 (1606s)
+  [heal] step 740 loss=5.7097 trainKL=1.1454 (1653s)
+  [heal] step 760 loss=5.6973 trainKL=1.1342 (1710s)
+  [heal] step 780 loss=5.6679 trainKL=1.1243 (1766s)
+  [heal] step 800 loss=5.6993 trainKL=1.1302 (1822s)
+[heal] step 800: val KL=0.9784 agr=0.4973 ppl=90.40 acc=0.2502 (1826s)
+  [heal] step 820 loss=5.6964 trainKL=1.1367 (1889s)
+  [heal] step 840 loss=5.6607 trainKL=1.1102 (1950s)
+  [heal] step 860 loss=5.6793 trainKL=1.1203 (2008s)
+  [heal] step 880 loss=5.6941 trainKL=1.0964 (2081s)
+  [heal] step 900 loss=5.6291 trainKL=1.0735 (2156s)
+[heal] step 900: val KL=0.9674 agr=0.4980 ppl=89.48 acc=0.2529 (2159s)
+  [heal] step 920 loss=5.6378 trainKL=1.0824 (2220s)
+  [heal] step 940 loss=5.6466 trainKL=1.0741 (2276s)
+  [heal] step 960 loss=5.6636 trainKL=1.0932 (2331s)
+  [heal] step 980 loss=5.6270 trainKL=1.0714 (2381s)
+  [heal] step 1000 loss=5.6012 trainKL=1.0561 (2430s)
+[heal] step 1000: val KL=0.9533 agr=0.4995 ppl=87.45 acc=0.2502 (2433s)
+  [heal] step 1020 loss=5.6291 trainKL=1.0507 (2475s)
+  [heal] step 1040 loss=5.6675 trainKL=1.0740 (2519s)
+  [heal] step 1060 loss=5.6275 trainKL=1.0577 (2562s)
+  [heal] step 1080 loss=5.6034 trainKL=1.0457 (2609s)
+  [heal] step 1100 loss=5.6490 trainKL=1.0685 (2652s)
+[heal] step 1100: val KL=0.9459 agr=0.4990 ppl=86.68 acc=0.2537 (2655s)
+  [heal] step 1120 loss=5.6437 trainKL=1.0328 (2698s)
+  [heal] step 1140 loss=5.5663 trainKL=1.0120 (2743s)
+  [heal] step 1160 loss=5.5959 trainKL=1.0263 (2788s)
+  [heal] step 1180 loss=5.6404 trainKL=1.0325 (2832s)
+  [heal] step 1200 loss=5.5765 trainKL=1.0230 (2878s)
+[heal] step 1200: val KL=0.9316 agr=0.5059 ppl=86.21 acc=0.2542 (2880s)
+  [heal] step 1220 loss=5.5826 trainKL=1.0133 (2922s)
+  [heal] step 1240 loss=5.5696 trainKL=1.0081 (2976s)
+  [heal] step 1260 loss=5.5808 trainKL=1.0164 (3023s)
+  [heal] step 1280 loss=5.5784 trainKL=1.0084 (3072s)
+  [heal] step 1300 loss=5.5471 trainKL=1.0087 (3131s)
+[heal] step 1300: val KL=0.9264 agr=0.5061 ppl=86.18 acc=0.2576 (3134s)
+  [heal] step 1320 loss=5.5413 trainKL=1.0037 (3193s)
+  [heal] step 1340 loss=5.5389 trainKL=0.9813 (3247s)
+  [heal] step 1360 loss=5.5240 trainKL=0.9837 (3306s)
+  [heal] step 1380 loss=5.5604 trainKL=0.9810 (3362s)
+  [heal] step 1400 loss=5.6011 trainKL=0.9939 (3416s)
+[heal] step 1400: val KL=0.9129 agr=0.5095 ppl=84.26 acc=0.2596 (3419s)
+  [heal] step 1420 loss=5.5049 trainKL=0.9820 (3471s)
+  [heal] step 1440 loss=5.5855 trainKL=0.9825 (3522s)
+  [heal] step 1460 loss=5.5262 trainKL=0.9830 (3571s)
+  [heal] step 1480 loss=5.5392 trainKL=0.9836 (3636s)
+  [heal] step 1500 loss=5.5145 trainKL=0.9838 (3693s)
+[heal] step 1500: val KL=0.9058 agr=0.5093 ppl=84.14 acc=0.2593 (3695s)
+  [heal] step 1520 loss=5.5086 trainKL=0.9750 (3744s)
+  [heal] step 1540 loss=5.4706 trainKL=0.9743 (3792s)
+  [heal] step 1560 loss=5.5481 trainKL=0.9620 (3837s)
+  [heal] step 1580 loss=5.4987 trainKL=0.9554 (3881s)
+  [heal] step 1600 loss=5.5422 trainKL=0.9560 (3932s)
+[heal] step 1600: val KL=0.8974 agr=0.5137 ppl=83.88 acc=0.2566 (3934s)
+  [heal] step 1620 loss=5.5083 trainKL=0.9648 (3979s)
+  [heal] step 1640 loss=5.5130 trainKL=0.9668 (4022s)
+  [heal] step 1660 loss=5.4822 trainKL=0.9648 (4067s)
+  [heal] step 1680 loss=5.5345 trainKL=0.9607 (4113s)
+  [heal] step 1700 loss=5.4718 trainKL=0.9441 (4161s)
+[heal] step 1700: val KL=0.8951 agr=0.5176 ppl=83.17 acc=0.2581 (4163s)
+  [heal] step 1720 loss=5.5094 trainKL=0.9601 (4210s)
+  [heal] step 1740 loss=5.4955 trainKL=0.9510 (4256s)
+  [heal] step 1760 loss=5.4381 trainKL=0.9373 (4302s)
+  [heal] step 1780 loss=5.4867 trainKL=0.9553 (4347s)
+  [heal] step 1800 loss=5.5028 trainKL=0.9557 (4392s)
+[heal] step 1800: val KL=0.8878 agr=0.5205 ppl=82.47 acc=0.2608 (4394s)
+  [heal] step 1820 loss=5.4817 trainKL=0.9497 (4441s)
+  [heal] step 1840 loss=5.4854 trainKL=0.9328 (4489s)
+  [heal] step 1860 loss=5.4720 trainKL=0.9347 (4536s)
+  [heal] step 1880 loss=5.4815 trainKL=0.9370 (4587s)
+  [heal] step 1900 loss=5.4699 trainKL=0.9281 (4641s)
+[heal] step 1900: val KL=0.8746 agr=0.5217 ppl=81.87 acc=0.2603 (4643s)
+  [heal] step 1920 loss=5.4910 trainKL=0.9303 (4698s)
+  [heal] step 1940 loss=5.4456 trainKL=0.9212 (4760s)
+  [heal] step 1960 loss=5.5179 trainKL=0.9438 (4904s)
+  [heal] step 1980 loss=5.4903 trainKL=0.9295 (5007s)
+  [heal] step 2000 loss=5.4790 trainKL=0.9260 (5067s)
+[heal] step 2000: val KL=0.8721 agr=0.5210 ppl=81.07 acc=0.2591 (5070s)
+[heal] FINAL TEST: KL=0.8335 agr=0.5225 ppl=88.99 acc=0.2576
+[heal] saved healed compressed model to weight_compress_healed.pt
+[verdict] COMPRESSION_REAL: healed ppl 88.99 (1.63x baseline) at 2.85x block-weight compression
+[done] wrote results_weight_compress.json
