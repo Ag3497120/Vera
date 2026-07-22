@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vera — Proven map & scale-up call</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #1a1f1c;
+    --panel: #242b26;
+    --ink: #e8efe6;
+    --muted: #8a9a88;
+    --ok: #6bcf8e;
+    --fail: #e07a5f;
+    --accent: #c4a35a;
+    --line: #3a453c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Newsreader", Georgia, serif;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #2a332c 0%, transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, #2c2620 0%, transparent 50%),
+      var(--bg);
+    color: var(--ink);
+    line-height: 1.45;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.35rem;
+  }
+  .tag {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .lede { font-size: 1.15rem; color: var(--muted); max-width: 40rem; }
+  section { margin-top: 2.5rem; }
+  h2 {
+    font-size: 1.35rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.75rem;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 0.9rem 1rem;
+  }
+  .card .k {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .card .v { font-size: 1.05rem; margin-top: 0.35rem; }
+  .ok { color: var(--ok); }
+  .fail { color: var(--fail); }
+  .flow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.82rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 1rem 1.1rem;
+    overflow-x: auto;
+    white-space: pre;
+    line-height: 1.55;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.55rem 0.4rem;
+    border-bottom: 1px solid var(--line);
+  }
+  th { font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; color: var(--muted); font-weight: 600; }
+  .call {
+    background: linear-gradient(135deg, #2a3128, #332b22);
+    border: 1px solid var(--accent);
+    padding: 1.25rem 1.4rem;
+  }
+  .call h2 { border: 0; margin-top: 0; color: var(--accent); }
+  a { color: var(--accent); }
+  .bar {
+    display: inline-block;
+    height: 0.55rem;
+    background: var(--ok);
+    vertical-align: middle;
+    margin-right: 0.4rem;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="tag">VERA · STEREO-CROSS CONTAINER · GPT-2 PROOF → SCALE CALL</p>
+    <h1>Vera</h1>
+    <p class="lede">
+      個人計算で実証した「層を貫く共有座標」を、体感デモとスケールアップ募集にまとめたボードです。
+      巨大な一枚岩モデルを最初から訓練する代わりに、<strong>専門家モジュールを共通言語でつなぐ</strong>設計空間が開いています。
+    </p>
+
+    <section>
+      <h2>Proven on personal compute</h2>
+      <div class="grid">
+        <div class="card"><div class="k">Weight-space bridge</div><div class="v fail">FAIL</div></div>
+        <div class="card"><div class="k">Activation shared basis</div><div class="v ok">OK · ~1.09 ratio</div></div>
+        <div class="card"><div class="k">Container r=256</div><div class="v ok">OK · 1.45× ppl</div></div>
+        <div class="card"><div class="k">Parts / hubs</div><div class="v ok">PARTS_LIKE</div></div>
+        <div class="card"><div class="k">Weight compress</div><div class="v ok">2.85× · 1.63× ppl</div></div>
+        <div class="card"><div class="k">Matryoshka</div><div class="v ok">VIABLE · r=8…256</div></div>
+        <div class="card"><div class="k">Cross-model join</div><div class="v ok">JOIN_VIABLE</div></div>
+        <div class="card"><div class="k">Coord memory</div><div class="v ok">MEMORY_VIABLE</div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>What you can feel in the CLI (GPT-2)</h2>
+      <div class="flow">python -m demo status
+python -m demo tour          # matryoshka → memory → join → hub
+python -m demo vision --open</div>
+      <table style="margin-top:1rem">
+        <thead><tr><th>Demo</th><th>Effect</th></tr></thead>
+        <tbody>
+          <tr><td>matryoshka</td><td>Rank lever: coarser still grammatical, finer recovers quality</td></tr>
+          <tr><td>memory</td><td>Real 256-d memory boosts answer token vs random coord</td></tr>
+          <tr><td>join</td><td>GPT-2 coords → DistilGPT2 stays fluent; random collapses</td></tr>
+          <tr><td>hub</td><td>Ablating hub dims hurts more than ablating random dims</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>If this scales — design sketch</h2>
+      <div class="flow">┌─────────────┐   shared P (low-d)   ┌─────────────┐
+│ Expert: Code │ ────── coords ─────► │ Expert: Chat │
+└─────────────┘     + memory NN      └─────────────┘
+        │                                   │
+        └──── Matryoshka rank lever ────────┘
+              (cheap coarse / rich fine)
+
+Same-width same-arch 9B experts  →  highest-probability next test
+Cross-width 9B↔27B               →  needs adapters (unproven)
+BitNet / quant                   →  orthogonal (make each expert cheaper)</div>
+      <p style="color:var(--muted);font-size:0.95rem">
+        接合は「パラメータを足して一つの巨大ネットにする」のではなく、
+        <em>共通座標で状態を渡し、モジュールを差し替える</em>ための糊です。
+        タスク性能の足し算は未実証 — だから協力者が必要です。
+      </p>
+    </section>
+
+    <section>
+      <h2>Evidence strength</h2>
+      <p><span class="bar" style="width:92%"></span> Same-width join (GPT-2 ↔ DistilGPT2)</p>
+      <p><span class="bar" style="width:88%"></span> Matryoshka + memory on GPT-2 container</p>
+      <p><span class="bar" style="width:70%"></span> Structure compression as format</p>
+      <p><span class="bar" style="width:25%;background:var(--fail)"></span> 9B expert specialization → task transfer via join</p>
+      <p><span class="bar" style="width:10%;background:var(--fail)"></span> Cross-width 9B ↔ 27B</p>
+    </section>
+
+    <section class="call">
+      <h2>Call for collaborators</h2>
+      <p>
+        ここまでの再現・デモはノートPC級で可能です。次の壁は <strong>計算資源</strong> です。
+        同アーキ 9B 同士の特化→接合、あるいは共通 P への蒸留を回せる方を求めています。
+      </p>
+      <p>
+        詳細: <a href="./CALL_FOR_COLLABORATORS.md">CALL_FOR_COLLABORATORS.md</a>
+        · 実験年代記: <a href="../README.md">README.md</a>
+        · リポジトリ: <a href="https://github.com/Ag3497120/Vera">github.com/Ag3497120/Vera</a>
+      </p>
+    </section>
+  </div>
+</body>
+</html>

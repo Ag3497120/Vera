@@ -425,18 +425,33 @@ Part II で確立した容れ物（r=256 蒸留済み生徒）を使い、構想
 
 **→ 詳細は [`REPRODUCE.md`](./REPRODUCE.md)**（環境構築・全コマンド・チェックポイント再生成）。
 
-```
-experiments/
-├── stereo_cross_bridge/          # Part I: 重み空間（Qwen1.5-0.5B）— *.py + レポート + results_*.json + logs
-└── stereo_cross_activation/      # Part II–III: 活性空間（GPT-2）— 同上 + 小容量 .npz キャッシュ
+**→ 体感デモは [`demo/`](./demo/)** — GPT-2 で効果を触る CLI + 可視化 + 協力募集:
+
+```bash
+pip install -r requirements.txt
+export VERA_ARTIFACTS=/path/to/dir_with_pt_and_npz
+python -m demo status
+python -m demo tour
+python -m demo vision --open   # demo/vision.html
 ```
 
-`archive/` は上記の写し（同内容）。巨大な `.pt` 蒸留チェックポイントは GitHub 制限のため未同梱——`REPRODUCE.md` のコマンドで再生成。
+- [`demo/README.md`](./demo/README.md) — 使い方  
+- [`demo/vision.html`](./demo/vision.html) — 実証マップとスケールアップ構想の可視化  
+- [`demo/CALL_FOR_COLLABORATORS.md`](./demo/CALL_FOR_COLLABORATORS.md) — 9B 接合などを回せる協力者向け
+
+```
+experiments/
+├── stereo_cross_bridge/          # Part I: 重み空間（Qwen1.5-0.5B）
+└── stereo_cross_activation/      # Part II–III: 活性空間（GPT-2）+ Step 1–5
+demo/                             # 体感 CLI / vision / call-for-collab
+```
+
+巨大な `.pt` は GitHub 制限のため未同梱——`REPRODUCE.md` / `demo/README.md` で配置または再生成。
 
 ### 実行環境
 
 - ハードウェア: Apple Silicon（MPS）1台
-- モデル: Qwen1.5-0.5B-Chat（Part I）、GPT-2 small 124M（Part II 以降）、DistilGPT2（Step 5 model B）
+- モデル: Qwen1.5-0.5B-Chat（Part I）、GPT-2 small 124M（Part II 以降）、DistilGPT2（Step 5）
 - データ: wikitext-2（校正・訓練・評価とも）
 - 依存: `requirements.txt`
 - 総計算時間: 全シリーズ合算でおよそ半日規模
