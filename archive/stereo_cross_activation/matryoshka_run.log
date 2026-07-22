@@ -1,0 +1,71 @@
+/Users/motonishikoudai/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'wikitext-2-raw-v1' at /Users/motonishikoudai/.cache/huggingface/datasets/wikitext/wikitext-2-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Wed Jul 22 02:51:01 2026).
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/matryoshka_patch.py:128: RuntimeWarning: divide by zero encountered in matmul
+  C = Xc.T @ Xc
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/matryoshka_patch.py:128: RuntimeWarning: overflow encountered in matmul
+  C = Xc.T @ Xc
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/matryoshka_patch.py:128: RuntimeWarning: invalid value encountered in matmul
+  C = Xc.T @ Xc
+Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'wikitext-2-raw-v1' at /Users/motonishikoudai/.cache/huggingface/datasets/wikitext/wikitext-2-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Wed Jul 22 02:51:01 2026).
+[model] loading openai-community/gpt2 ...
+[fit corpus] wikitext-2-raw-v1(train): 390 x 256 = 99840 tokens
+  [fit] batch 1/49 sampled=276/15000 2s
+  [fit] batch 11/49 sampled=3369/15000 6s
+  [fit] batch 21/49 sampled=6407/15000 11s
+  [fit] batch 31/49 sampled=9494/15000 15s
+  [fit] batch 41/49 sampled=12600/15000 19s
+[fit] bases done (24s total)
+[eval corpus] wikitext-2-raw-v1(test): 40 x 256 = 10240 tokens
+  [eval] batch 1/10 (16s)
+  [eval] batch 2/10 (32s)
+  [eval] batch 3/10 (49s)
+  [eval] batch 4/10 (66s)
+  [eval] batch 5/10 (84s)
+  [eval] batch 6/10 (101s)
+  [eval] batch 7/10 (120s)
+  [eval] batch 8/10 (142s)
+  [eval] batch 9/10 (166s)
+  [eval] batch 10/10 (190s)
+
+[baseline] ppl=54.464 top1_acc=0.3102
+
+=== ALL-LAYER patching ===
+   r |    KL sh  agr sh  pplx sh |   KL rnd agr rnd  pplx rnd |    KL pl  agr pl  pplx pl
+   8 |   4.2206  0.0271   78.805 |   4.6268  0.0345  116.334 |   4.7979  0.0464  132.592
+  16 |   4.6065  0.0857  113.586 |   4.8602  0.0222  139.572 |   4.6509  0.0530  112.886
+  32 |   5.8925  0.0449  409.950 |   4.9299  0.0241  145.929 |   5.6791  0.1313  271.718
+  64 |   4.0494  0.1430   55.237 |   5.6837  0.0241  313.479 |   5.8261  0.1357  253.763
+ 128 |   3.3574  0.1688   27.107 |   6.4683  0.0001  630.097 |   3.2080  0.2016   19.864
+ 256 |   2.3229  0.2318    9.518 |   7.7567  0.0000 2443.630 |   2.3205  0.2450    8.229
+
+=== SINGLE L6 patching ===
+   r |    KL sh  agr sh  pplx sh |   KL rnd agr rnd  pplx rnd |    KL pl  agr pl  pplx pl
+   8 |   3.9016  0.1229   52.080 |   6.1233  0.0320  464.618 |   3.3061  0.1601   25.667
+  16 |   3.0762  0.1661   20.711 |   5.5930  0.0308  287.309 |   2.7610  0.2157   14.249
+  32 |   2.4540  0.2340   11.259 |   5.7964  0.0294  350.749 |   2.1691  0.2886    7.861
+  64 |   1.7162  0.3241    5.296 |   5.5217  0.0231  248.571 |   1.4925  0.3774    4.042
+ 128 |   1.0136  0.4459    2.668 |   5.4153  0.0449  256.341 |   0.8236  0.5021    2.087
+ 256 |   0.4452  0.6148    1.507 |   4.6607  0.0747  119.065 |   0.3216  0.6761    1.293
+
+=== SINGLE L3 (shared only) patching ===
+   r |    KL sh  agr sh  pplx sh |   KL rnd agr rnd  pplx rnd |    KL pl  agr pl  pplx pl
+   8 |   4.6000  0.0771  106.131 |                           |                          
+  16 |   3.8768  0.1446   43.858 |                           |                          
+  32 |   3.0698  0.1949   20.094 |                           |                          
+  64 |   2.0218  0.2913    7.177 |                           |                          
+ 128 |   1.0643  0.4563    2.751 |                           |                          
+ 256 |   0.3370  0.6793    1.329 |                           |                          
+
+=== SINGLE L9 (shared only) patching ===
+   r |    KL sh  agr sh  pplx sh |   KL rnd agr rnd  pplx rnd |    KL pl  agr pl  pplx pl
+   8 |   3.8915  0.1229   45.082 |                           |                          
+  16 |   3.0142  0.1563   17.919 |                           |                          
+  32 |   2.3200  0.2320    9.088 |                           |                          
+  64 |   1.7027  0.3257    4.954 |                           |                          
+ 128 |   1.0668  0.4381    2.661 |                           |                          
+ 256 |   0.4692  0.6097    1.492 |                           |                          
+
+[matryoshka] wrote /Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/results_matryoshka.json

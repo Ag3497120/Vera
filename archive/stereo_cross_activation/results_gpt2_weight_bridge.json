@@ -1,0 +1,409 @@
+{
+  "model": "openai-community/gpt2",
+  "model_dir": "/Users/motonishikoudai/.cache/huggingface/hub/models--openai-community--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e",
+  "layer_start": 0,
+  "layer_end_exclusive": 5,
+  "ranks": [
+    32,
+    64
+  ],
+  "protocol": "reimplementation of stereo_cross_bridge/shared_bridge_vs_svd.py; Conv1D transposed to (out,in); c_attn split into q/k/v thirds",
+  "modules": {
+    "q": [
+      {
+        "rank": 32,
+        "layers": 5,
+        "shape": [
+          768,
+          768
+        ],
+        "keys": [
+          "h.0.attn.c_attn.weight[q]",
+          "h.1.attn.c_attn.weight[q]",
+          "h.2.attn.c_attn.weight[q]",
+          "h.3.attn.c_attn.weight[q]",
+          "h.4.attn.c_attn.weight[q]"
+        ],
+        "svd_rel_fro_mean": 0.8474528956689893,
+        "svd_rel_fro_per_layer": [
+          0.8714292663980286,
+          0.8398563364496736,
+          0.8440551477975061,
+          0.8494222906482107,
+          0.8325014370515275
+        ],
+        "bridge_rel_fro_mean": 0.9751947480891395,
+        "bridge_rel_fro_per_layer": [
+          0.9928877639458934,
+          0.9776455263683228,
+          0.9694580460146627,
+          0.9654716621824272,
+          0.9705107419343921
+        ],
+        "error_ratio_bridge_over_svd": 1.1507362274314474
+      },
+      {
+        "rank": 64,
+        "layers": 5,
+        "shape": [
+          768,
+          768
+        ],
+        "keys": [
+          "h.0.attn.c_attn.weight[q]",
+          "h.1.attn.c_attn.weight[q]",
+          "h.2.attn.c_attn.weight[q]",
+          "h.3.attn.c_attn.weight[q]",
+          "h.4.attn.c_attn.weight[q]"
+        ],
+        "svd_rel_fro_mean": 0.749861255196631,
+        "svd_rel_fro_per_layer": [
+          0.7759783918000972,
+          0.7334044058370346,
+          0.7450880016122703,
+          0.7630789592271668,
+          0.7317565175065865
+        ],
+        "bridge_rel_fro_mean": 0.953834127626078,
+        "bridge_rel_fro_per_layer": [
+          0.9790637586670399,
+          0.9557123319161793,
+          0.9449721512231254,
+          0.9406253857446679,
+          0.948797010579378
+        ],
+        "error_ratio_bridge_over_svd": 1.2720141506373583
+      }
+    ],
+    "k": [
+      {
+        "rank": 32,
+        "layers": 5,
+        "shape": [
+          768,
+          768
+        ],
+        "keys": [
+          "h.0.attn.c_attn.weight[k]",
+          "h.1.attn.c_attn.weight[k]",
+          "h.2.attn.c_attn.weight[k]",
+          "h.3.attn.c_attn.weight[k]",
+          "h.4.attn.c_attn.weight[k]"
+        ],
+        "svd_rel_fro_mean": 0.8261887718756421,
+        "svd_rel_fro_per_layer": [
+          0.8118193194461341,
+          0.8067500634109005,
+          0.8262860335073678,
+          0.8492551115549444,
+          0.8368333314588644
+        ],
+        "bridge_rel_fro_mean": 0.9732718295271621,
+        "bridge_rel_fro_per_layer": [
+          0.9879922863187338,
+          0.9753354048915805,
+          0.9681174528809338,
+          0.9649252762015846,
+          0.9699887273429775
+        ],
+        "error_ratio_bridge_over_svd": 1.1780259701622777
+      },
+      {
+        "rank": 64,
+        "layers": 5,
+        "shape": [
+          768,
+          768
+        ],
+        "keys": [
+          "h.0.attn.c_attn.weight[k]",
+          "h.1.attn.c_attn.weight[k]",
+          "h.2.attn.c_attn.weight[k]",
+          "h.3.attn.c_attn.weight[k]",
+          "h.4.attn.c_attn.weight[k]"
+        ],
+        "svd_rel_fro_mean": 0.7342622633177329,
+        "svd_rel_fro_per_layer": [
+          0.7051256300209012,
+          0.7051597209967723,
+          0.7367869555316823,
+          0.7710623700217096,
+          0.7531766400175991
+        ],
+        "bridge_rel_fro_mean": 0.9531126253055089,
+        "bridge_rel_fro_per_layer": [
+          0.9695131241021798,
+          0.9526133560990341,
+          0.9457585372395094,
+          0.9461834269906257,
+          0.9514946820961954
+        ],
+        "error_ratio_bridge_over_svd": 1.298054759068799
+      }
+    ],
+    "v": [
+      {
+        "rank": 32,
+        "layers": 5,
+        "shape": [
+          768,
+          768
+        ],
+        "keys": [
+          "h.0.attn.c_attn.weight[v]",
+          "h.1.attn.c_attn.weight[v]",
+          "h.2.attn.c_attn.weight[v]",
+          "h.3.attn.c_attn.weight[v]",
+          "h.4.attn.c_attn.weight[v]"
+        ],
+        "svd_rel_fro_mean": 0.864653427917059,
+        "svd_rel_fro_per_layer": [
+          0.837014425627755,
+          0.8710644942791221,
+          0.8811718201185924,
+          0.86202099506881,
+          0.871995404491015
+        ],
+        "bridge_rel_fro_mean": 0.9813632780906044,
+        "bridge_rel_fro_per_layer": [
+          0.9912073586625341,
+          0.9820173809423345,
+          0.9780062789011507,
+          0.9763239023552623,
+          0.9792614695917402
+        ],
+        "error_ratio_bridge_over_svd": 1.134978763056041
+      },
+      {
+        "rank": 64,
+        "layers": 5,
+        "shape": [
+          768,
+          768
+        ],
+        "keys": [
+          "h.0.attn.c_attn.weight[v]",
+          "h.1.attn.c_attn.weight[v]",
+          "h.2.attn.c_attn.weight[v]",
+          "h.3.attn.c_attn.weight[v]",
+          "h.4.attn.c_attn.weight[v]"
+        ],
+        "svd_rel_fro_mean": 0.7743290097881668,
+        "svd_rel_fro_per_layer": [
+          0.755190089773336,
+          0.7797949877488778,
+          0.792504739734084,
+          0.7647580238578005,
+          0.7793972078267357
+        ],
+        "bridge_rel_fro_mean": 0.9601317969275203,
+        "bridge_rel_fro_per_layer": [
+          0.978000347229292,
+          0.9587886758322192,
+          0.9540955988229421,
+          0.9518869747265638,
+          0.9578873880265841
+        ],
+        "error_ratio_bridge_over_svd": 1.2399532818600503
+      }
+    ],
+    "o": [
+      {
+        "rank": 32,
+        "layers": 5,
+        "shape": [
+          768,
+          768
+        ],
+        "keys": [
+          "h.0.attn.c_proj.weight",
+          "h.1.attn.c_proj.weight",
+          "h.2.attn.c_proj.weight",
+          "h.3.attn.c_proj.weight",
+          "h.4.attn.c_proj.weight"
+        ],
+        "svd_rel_fro_mean": 0.8074858020435457,
+        "svd_rel_fro_per_layer": [
+          0.7468598510118926,
+          0.7236321527768913,
+          0.8478395893914761,
+          0.8618567268707031,
+          0.8572406901667647
+        ],
+        "bridge_rel_fro_mean": 0.9663999404616705,
+        "bridge_rel_fro_per_layer": [
+          0.9684234703729852,
+          0.9502168042262141,
+          0.965096509079504,
+          0.9729249570983193,
+          0.9753379615313303
+        ],
+        "error_ratio_bridge_over_svd": 1.196801154911648
+      },
+      {
+        "rank": 64,
+        "layers": 5,
+        "shape": [
+          768,
+          768
+        ],
+        "keys": [
+          "h.0.attn.c_proj.weight",
+          "h.1.attn.c_proj.weight",
+          "h.2.attn.c_proj.weight",
+          "h.3.attn.c_proj.weight",
+          "h.4.attn.c_proj.weight"
+        ],
+        "svd_rel_fro_mean": 0.7114695825169985,
+        "svd_rel_fro_per_layer": [
+          0.6250933880977765,
+          0.6375649414741893,
+          0.7607647943746397,
+          0.7704643081160316,
+          0.7634604805223555
+        ],
+        "bridge_rel_fro_mean": 0.9432656600412231,
+        "bridge_rel_fro_per_layer": [
+          0.9525740285243999,
+          0.923666773409068,
+          0.9403126201614175,
+          0.9465110437291948,
+          0.9532638343820362
+        ],
+        "error_ratio_bridge_over_svd": 1.3257989986063259
+      }
+    ],
+    "mlp_fc": [
+      {
+        "rank": 32,
+        "layers": 5,
+        "shape": [
+          3072,
+          768
+        ],
+        "keys": [
+          "h.0.mlp.c_fc.weight",
+          "h.1.mlp.c_fc.weight",
+          "h.2.mlp.c_fc.weight",
+          "h.3.mlp.c_fc.weight",
+          "h.4.mlp.c_fc.weight"
+        ],
+        "svd_rel_fro_mean": 0.8949832680682563,
+        "svd_rel_fro_per_layer": [
+          0.9066640325308403,
+          0.89069235467277,
+          0.8795893264494551,
+          0.9020799810143557,
+          0.895890645673861
+        ],
+        "bridge_rel_fro_mean": 0.9769427408497553,
+        "bridge_rel_fro_per_layer": [
+          0.9872697001384657,
+          0.9768482634630665,
+          0.9690227240968934,
+          0.9739822797337234,
+          0.9775907368166273
+        ],
+        "error_ratio_bridge_over_svd": 1.0915765419361525
+      },
+      {
+        "rank": 64,
+        "layers": 5,
+        "shape": [
+          3072,
+          768
+        ],
+        "keys": [
+          "h.0.mlp.c_fc.weight",
+          "h.1.mlp.c_fc.weight",
+          "h.2.mlp.c_fc.weight",
+          "h.3.mlp.c_fc.weight",
+          "h.4.mlp.c_fc.weight"
+        ],
+        "svd_rel_fro_mean": 0.8393882455738334,
+        "svd_rel_fro_per_layer": [
+          0.8531978003837566,
+          0.8372432408424896,
+          0.8261857768036053,
+          0.8450961080725348,
+          0.8352183017667807
+        ],
+        "bridge_rel_fro_mean": 0.9659510536921261,
+        "bridge_rel_fro_per_layer": [
+          0.9802552364795956,
+          0.9668700234735921,
+          0.9557788669855622,
+          0.9611057046029625,
+          0.9657454369189178
+        ],
+        "error_ratio_bridge_over_svd": 1.1507798194512713
+      }
+    ],
+    "mlp_proj": [
+      {
+        "rank": 32,
+        "layers": 5,
+        "shape": [
+          768,
+          3072
+        ],
+        "keys": [
+          "h.0.mlp.c_proj.weight",
+          "h.1.mlp.c_proj.weight",
+          "h.2.mlp.c_proj.weight",
+          "h.3.mlp.c_proj.weight",
+          "h.4.mlp.c_proj.weight"
+        ],
+        "svd_rel_fro_mean": 0.8797739304940592,
+        "svd_rel_fro_per_layer": [
+          0.8776026006059574,
+          0.8816679845897913,
+          0.8796491719795979,
+          0.873314393431528,
+          0.8866355018634215
+        ],
+        "bridge_rel_fro_mean": 0.9787523767610345,
+        "bridge_rel_fro_per_layer": [
+          0.9825207139451164,
+          0.979633393250792,
+          0.9725196317508905,
+          0.977637471696035,
+          0.9814506731623394
+        ],
+        "error_ratio_bridge_over_svd": 1.112504409184163
+      },
+      {
+        "rank": 64,
+        "layers": 5,
+        "shape": [
+          768,
+          3072
+        ],
+        "keys": [
+          "h.0.mlp.c_proj.weight",
+          "h.1.mlp.c_proj.weight",
+          "h.2.mlp.c_proj.weight",
+          "h.3.mlp.c_proj.weight",
+          "h.4.mlp.c_proj.weight"
+        ],
+        "svd_rel_fro_mean": 0.8270717887030848,
+        "svd_rel_fro_per_layer": [
+          0.831102212832323,
+          0.8372906530258128,
+          0.8247021966752017,
+          0.8147439322685148,
+          0.8275199487135723
+        ],
+        "bridge_rel_fro_mean": 0.9675377857418705,
+        "bridge_rel_fro_per_layer": [
+          0.9732199442291755,
+          0.9700944371410981,
+          0.9609106341075306,
+          0.9629740621254457,
+          0.9704898511061028
+        ],
+        "error_ratio_bridge_over_svd": 1.169835314124156
+      }
+    ]
+  }
+}

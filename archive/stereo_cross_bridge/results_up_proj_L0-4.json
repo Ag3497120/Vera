@@ -1,0 +1,143 @@
+{
+  "model_dir": "/Users/motonishikoudai/.cache/huggingface/hub/models--Qwen--Qwen1.5-0.5B-Chat/snapshots/4d14e384a4b037942bb3f3016665157c8bcb70ea",
+  "module": "up_proj",
+  "layer_start": 0,
+  "layer_end_exclusive": 5,
+  "runs": [
+    {
+      "module": "up_proj",
+      "layer_start": 0,
+      "layer_end_exclusive": 5,
+      "rank": 32,
+      "layers": 5,
+      "shape": [
+        2816,
+        1024
+      ],
+      "keys": [
+        "model.layers.0.mlp.up_proj.weight",
+        "model.layers.1.mlp.up_proj.weight",
+        "model.layers.2.mlp.up_proj.weight",
+        "model.layers.3.mlp.up_proj.weight",
+        "model.layers.4.mlp.up_proj.weight"
+      ],
+      "svd_rel_fro_mean": 0.9586988898445824,
+      "svd_rel_fro_max": 0.9601715732791378,
+      "svd_rel_fro_per_layer": [
+        0.9601715732791378,
+        0.9577236865767905,
+        0.9589506112699512,
+        0.9586835273923021,
+        0.9579650507047306
+      ],
+      "bridge_rel_fro_mean": 0.9959488689035432,
+      "bridge_rel_fro_max": 0.9978262943854042,
+      "bridge_rel_fro_per_layer": [
+        0.9978262943854042,
+        0.9956680037665524,
+        0.9951052495302626,
+        0.9952435979488978,
+        0.9959011988865986
+      ],
+      "C_offdiag_fraction_mean": 0.9818404359380806,
+      "params_independent_svd": 614560,
+      "params_shared_bridge": 128000,
+      "params_dense": 14417920,
+      "compression_vs_dense_svd": 0.04262473366477273,
+      "compression_vs_dense_bridge": 0.00887784090909091,
+      "error_ratio_bridge_over_svd": 1.038854722220405,
+      "top_r_energy_mean": 0.08089569422322229,
+      "verdict": "COMPRESS_ONLY"
+    },
+    {
+      "module": "up_proj",
+      "layer_start": 0,
+      "layer_end_exclusive": 5,
+      "rank": 64,
+      "layers": 5,
+      "shape": [
+        2816,
+        1024
+      ],
+      "keys": [
+        "model.layers.0.mlp.up_proj.weight",
+        "model.layers.1.mlp.up_proj.weight",
+        "model.layers.2.mlp.up_proj.weight",
+        "model.layers.3.mlp.up_proj.weight",
+        "model.layers.4.mlp.up_proj.weight"
+      ],
+      "svd_rel_fro_mean": 0.9220756980562068,
+      "svd_rel_fro_max": 0.9258621859791824,
+      "svd_rel_fro_per_layer": [
+        0.9258621859791824,
+        0.9203708846288796,
+        0.9220832562074273,
+        0.9219059396826498,
+        0.9201562237828959
+      ],
+      "bridge_rel_fro_mean": 0.9909712573868354,
+      "bridge_rel_fro_max": 0.9938641024584896,
+      "bridge_rel_fro_per_layer": [
+        0.9938641024584896,
+        0.9899491420496362,
+        0.9900295148600319,
+        0.9902014290301455,
+        0.9908120985358743
+      ],
+      "C_offdiag_fraction_mean": 0.9920070037093265,
+      "params_independent_svd": 1229120,
+      "params_shared_bridge": 266240,
+      "params_dense": 14417920,
+      "compression_vs_dense_svd": 0.08524946732954546,
+      "compression_vs_dense_bridge": 0.018465909090909092,
+      "error_ratio_bridge_over_svd": 1.0747178994900202,
+      "top_r_energy_mean": 0.14977221562688864,
+      "verdict": "COMPRESS_ONLY"
+    },
+    {
+      "module": "up_proj",
+      "layer_start": 0,
+      "layer_end_exclusive": 5,
+      "rank": 128,
+      "layers": 5,
+      "shape": [
+        2816,
+        1024
+      ],
+      "keys": [
+        "model.layers.0.mlp.up_proj.weight",
+        "model.layers.1.mlp.up_proj.weight",
+        "model.layers.2.mlp.up_proj.weight",
+        "model.layers.3.mlp.up_proj.weight",
+        "model.layers.4.mlp.up_proj.weight"
+      ],
+      "svd_rel_fro_mean": 0.8534439756391479,
+      "svd_rel_fro_max": 0.8612869468966076,
+      "svd_rel_fro_per_layer": [
+        0.8612869468966076,
+        0.8508404045238903,
+        0.852802259151382,
+        0.8527454456873493,
+        0.8495448219365107
+      ],
+      "bridge_rel_fro_mean": 0.9784999220205701,
+      "bridge_rel_fro_max": 0.9826630890078686,
+      "bridge_rel_fro_per_layer": [
+        0.9826630890078686,
+        0.9769841352092234,
+        0.9770073401979686,
+        0.9777395977620297,
+        0.9781054479257607
+      ],
+      "C_offdiag_fraction_mean": 0.9956323095390818,
+      "params_independent_svd": 2458240,
+      "params_shared_bridge": 573440,
+      "params_dense": 14417920,
+      "compression_vs_dense_svd": 0.1704989346590909,
+      "compression_vs_dense_bridge": 0.03977272727272727,
+      "error_ratio_bridge_over_svd": 1.1465309381164954,
+      "top_r_energy_mean": 0.2716165016603199,
+      "verdict": "COMPRESS_ONLY"
+    }
+  ]
+}

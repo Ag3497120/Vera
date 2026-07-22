@@ -1,0 +1,97 @@
+{
+  "model_dir": "/Users/motonishikoudai/.cache/huggingface/hub/models--Qwen--Qwen1.5-0.5B-Chat/snapshots/4d14e384a4b037942bb3f3016665157c8bcb70ea",
+  "runs": [
+    {
+      "r_share": 64,
+      "r_res": 64,
+      "r_total_budget": 128,
+      "keys": [
+        "model.layers.0.mlp.down_proj.weight",
+        "model.layers.1.mlp.down_proj.weight",
+        "model.layers.2.mlp.down_proj.weight",
+        "model.layers.3.mlp.down_proj.weight",
+        "model.layers.4.mlp.down_proj.weight"
+      ],
+      "svd_tot_rel_fro_mean": 0.8422533993767363,
+      "share_only_rel_fro_mean": 0.9870385337344946,
+      "hybrid_rel_fro_mean": 0.907482848257621,
+      "residual_fro_over_W_mean": 0.9870385337344946,
+      "top_r_tot_energy_mean": 0.2905904571127653,
+      "params_svd_tot": 2458240,
+      "params_share_only": 266240,
+      "params_hybrid": 1495360,
+      "hybrid_vs_svd_error_ratio": 1.077446346821606,
+      "hybrid_vs_svd_param_ratio": 0.6083051288726894,
+      "verdict": "HYBRID_NEAR"
+    },
+    {
+      "r_share": 64,
+      "r_res": 128,
+      "r_total_budget": 192,
+      "keys": [
+        "model.layers.0.mlp.down_proj.weight",
+        "model.layers.1.mlp.down_proj.weight",
+        "model.layers.2.mlp.down_proj.weight",
+        "model.layers.3.mlp.down_proj.weight",
+        "model.layers.4.mlp.down_proj.weight"
+      ],
+      "svd_tot_rel_fro_mean": 0.7780380066347441,
+      "share_only_rel_fro_mean": 0.9870385337344946,
+      "hybrid_rel_fro_mean": 0.8409648026259262,
+      "residual_fro_over_W_mean": 0.9870385337344946,
+      "top_r_tot_energy_mean": 0.39460881400566,
+      "params_svd_tot": 3687360,
+      "params_share_only": 266240,
+      "params_hybrid": 2724480,
+      "hybrid_vs_svd_error_ratio": 1.0808788201263833,
+      "hybrid_vs_svd_param_ratio": 0.7388700859151263,
+      "verdict": "HYBRID_NEAR"
+    },
+    {
+      "r_share": 128,
+      "r_res": 128,
+      "r_total_budget": 256,
+      "keys": [
+        "model.layers.0.mlp.down_proj.weight",
+        "model.layers.1.mlp.down_proj.weight",
+        "model.layers.2.mlp.down_proj.weight",
+        "model.layers.3.mlp.down_proj.weight",
+        "model.layers.4.mlp.down_proj.weight"
+      ],
+      "svd_tot_rel_fro_mean": 0.7168615045621347,
+      "share_only_rel_fro_mean": 0.973469412939348,
+      "hybrid_rel_fro_mean": 0.8328265197844334,
+      "residual_fro_over_W_mean": 0.973469412939348,
+      "top_r_tot_energy_mean": 0.4860161418460014,
+      "params_svd_tot": 4916480,
+      "params_share_only": 573440,
+      "params_hybrid": 3031680,
+      "hybrid_vs_svd_error_ratio": 1.161767669882022,
+      "hybrid_vs_svd_param_ratio": 0.616636292632127,
+      "verdict": "HYBRID_NEAR"
+    },
+    {
+      "r_share": 128,
+      "r_res": 256,
+      "r_total_budget": 384,
+      "keys": [
+        "model.layers.0.mlp.down_proj.weight",
+        "model.layers.1.mlp.down_proj.weight",
+        "model.layers.2.mlp.down_proj.weight",
+        "model.layers.3.mlp.down_proj.weight",
+        "model.layers.4.mlp.down_proj.weight"
+      ],
+      "svd_tot_rel_fro_mean": 0.6006025469644747,
+      "share_only_rel_fro_mean": 0.973469412939348,
+      "hybrid_rel_fro_mean": 0.7130082329908698,
+      "residual_fro_over_W_mean": 0.973469412939348,
+      "top_r_tot_energy_mean": 0.6390736457216273,
+      "params_svd_tot": 7374720,
+      "params_share_only": 573440,
+      "params_hybrid": 5489920,
+      "hybrid_vs_svd_error_ratio": 1.1871548607199909,
+      "hybrid_vs_svd_param_ratio": 0.7444241950880847,
+      "verdict": "HYBRID_NEAR"
+    }
+  ]
+}

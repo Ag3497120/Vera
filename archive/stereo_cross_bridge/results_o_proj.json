@@ -1,0 +1,135 @@
+{
+  "model_dir": "/Users/motonishikoudai/.cache/huggingface/hub/models--Qwen--Qwen1.5-0.5B-Chat/snapshots/4d14e384a4b037942bb3f3016665157c8bcb70ea",
+  "module": "o_proj",
+  "runs": [
+    {
+      "module": "o_proj",
+      "rank": 64,
+      "layers": 5,
+      "shape": [
+        1024,
+        1024
+      ],
+      "keys": [
+        "model.layers.0.self_attn.o_proj.weight",
+        "model.layers.1.self_attn.o_proj.weight",
+        "model.layers.2.self_attn.o_proj.weight",
+        "model.layers.3.self_attn.o_proj.weight",
+        "model.layers.4.self_attn.o_proj.weight"
+      ],
+      "svd_rel_fro_mean": 0.8156493360676489,
+      "svd_rel_fro_max": 0.8465137266769566,
+      "svd_rel_fro_per_layer": [
+        0.7742358186931624,
+        0.8031758081904772,
+        0.8374219493538636,
+        0.8168993774237849,
+        0.8465137266769566
+      ],
+      "bridge_rel_fro_mean": 0.9695023742285244,
+      "bridge_rel_fro_max": 0.9838194041129482,
+      "bridge_rel_fro_per_layer": [
+        0.9838194041129482,
+        0.9617004635273029,
+        0.9638493114339743,
+        0.9622103366166745,
+        0.9759323554517214
+      ],
+      "C_offdiag_fraction_mean": 0.9914322984166652,
+      "params_independent_svd": 655680,
+      "params_shared_bridge": 151552,
+      "params_dense": 5242880,
+      "compression_vs_dense_svd": 0.12506103515625,
+      "compression_vs_dense_bridge": 0.02890625,
+      "error_ratio_bridge_over_svd": 1.18862644932862,
+      "top_r_energy_mean": 0.3340563829284308,
+      "verdict": "COMPRESS_ONLY"
+    },
+    {
+      "module": "o_proj",
+      "rank": 128,
+      "layers": 5,
+      "shape": [
+        1024,
+        1024
+      ],
+      "keys": [
+        "model.layers.0.self_attn.o_proj.weight",
+        "model.layers.1.self_attn.o_proj.weight",
+        "model.layers.2.self_attn.o_proj.weight",
+        "model.layers.3.self_attn.o_proj.weight",
+        "model.layers.4.self_attn.o_proj.weight"
+      ],
+      "svd_rel_fro_mean": 0.6958882869313081,
+      "svd_rel_fro_max": 0.736463393539998,
+      "svd_rel_fro_per_layer": [
+        0.6392769588899198,
+        0.6756559089828913,
+        0.7208762169477116,
+        0.7071689562960198,
+        0.736463393539998
+      ],
+      "bridge_rel_fro_mean": 0.9361214379248141,
+      "bridge_rel_fro_max": 0.9581459592942857,
+      "bridge_rel_fro_per_layer": [
+        0.9581459592942857,
+        0.9198009971484109,
+        0.9286316755522402,
+        0.9285520269621639,
+        0.9454765306669698
+      ],
+      "C_offdiag_fraction_mean": 0.9955438881451965,
+      "params_independent_svd": 1311360,
+      "params_shared_bridge": 344064,
+      "params_dense": 5242880,
+      "compression_vs_dense_svd": 0.2501220703125,
+      "compression_vs_dense_bridge": 0.065625,
+      "error_ratio_bridge_over_svd": 1.3452179832649984,
+      "top_r_energy_mean": 0.5145370559109063,
+      "verdict": "WEAK_OR_LOSE"
+    },
+    {
+      "module": "o_proj",
+      "rank": 256,
+      "layers": 5,
+      "shape": [
+        1024,
+        1024
+      ],
+      "keys": [
+        "model.layers.0.self_attn.o_proj.weight",
+        "model.layers.1.self_attn.o_proj.weight",
+        "model.layers.2.self_attn.o_proj.weight",
+        "model.layers.3.self_attn.o_proj.weight",
+        "model.layers.4.self_attn.o_proj.weight"
+      ],
+      "svd_rel_fro_mean": 0.5071069516619331,
+      "svd_rel_fro_max": 0.5512207045021756,
+      "svd_rel_fro_per_layer": [
+        0.44527435620989747,
+        0.4812619245414335,
+        0.5310328606804734,
+        0.5267449123756855,
+        0.5512207045021756
+      ],
+      "bridge_rel_fro_mean": 0.8626953645965457,
+      "bridge_rel_fro_max": 0.895770110987208,
+      "bridge_rel_fro_per_layer": [
+        0.895770110987208,
+        0.8388115680197046,
+        0.8552978055410926,
+        0.853731669417406,
+        0.8698656690173178
+      ],
+      "C_offdiag_fraction_mean": 0.9979972778262735,
+      "params_independent_svd": 2622720,
+      "params_shared_bridge": 851968,
+      "params_dense": 5242880,
+      "compression_vs_dense_svd": 0.500244140625,
+      "compression_vs_dense_bridge": 0.1625,
+      "error_ratio_bridge_over_svd": 1.701209896191617,
+      "top_r_energy_mean": 0.7413634681560639,
+      "verdict": "WEAK_OR_LOSE"
+    }
+  ]
+}

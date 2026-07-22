@@ -1,0 +1,237 @@
+{
+  "meta": {
+    "model": "openai-community/gpt2",
+    "student": "kl_distill_student_r256.pt",
+    "basis": "bases_cache_soft_distill.npz",
+    "rank": 256,
+    "eval_corpus": "wikitext-2-raw-v1(test)",
+    "eval_tokens": 10240,
+    "seq_len": 256,
+    "device": "mps",
+    "baseline_ppl_ref": 54.466,
+    "r256_student_test_ref": {
+      "kl_mean": 0.6931,
+      "top1_agreement": 0.5611,
+      "ppl": 78.99
+    },
+    "fork": {
+      "COMPRESSION_REAL": "healed ppl <= ~2x baseline (<=109) at >=2.5x block-weight compression",
+      "CONTAINER_ONLY": "healed ppl > 3x baseline (>163)"
+    },
+    "ln_choice": "LN computed EXACTLY in coords via v/w split (v = centered per-block mean, constant; w in global span([P | q1])); diag(g), means, biases folded into factorized matrices \u2014 no reconstruct-LN-project roundtrip, no approximation"
+  },
+  "baseline_r256_student": {
+    "kl_mean": 0.6930393755435944,
+    "top1_agreement": 0.5609375,
+    "nll": 4.369316597732843,
+    "ppl": 78.98963155646845,
+    "top1_accuracy": 0.2703921568627451
+  },
+  "phase_a": {
+    "scope": "c_attn of blocks 1-11 (block 0 input is raw embeddings, does not qualify)",
+    "naive": {
+      "variant": "W -> Ptilde Ptilde^T W, Ptilde = orth([P, ones]), rank 257, no bias fix",
+      "per_layer": [
+        {
+          "layer": 1,
+          "eff_rank": 257,
+          "weight_frac_discarded": 0.7695538895945776
+        },
+        {
+          "layer": 2,
+          "eff_rank": 257,
+          "weight_frac_discarded": 0.7972174087218005
+        },
+        {
+          "layer": 3,
+          "eff_rank": 257,
+          "weight_frac_discarded": 0.8040413408804947
+        },
+        {
+          "layer": 4,
+          "eff_rank": 257,
+          "weight_frac_discarded": 0.8255771445623178
+        },
+        {
+          "layer": 5,
+          "eff_rank": 257,
+          "weight_frac_discarded": 0.8387154004901215
+        },
+        {
+          "layer": 6,
+          "eff_rank": 257,
+          "weight_frac_discarded": 0.8490950508006425
+        },
+        {
+          "layer": 7,
+          "eff_rank": 257,
+          "weight_frac_discarded": 0.8351503343689448
+        },
+        {
+          "layer": 8,
+          "eff_rank": 257,
+          "weight_frac_discarded": 0.8199846454539625
+        },
+        {
+          "layer": 9,
+          "eff_rank": 257,
+          "weight_frac_discarded": 0.7948547170130393
+        },
+        {
+          "layer": 10,
+          "eff_rank": 257,
+          "weight_frac_discarded": 0.763159407950745
+        },
+        {
+          "layer": 11,
+          "eff_rank": 257,
+          "weight_frac_discarded": 0.7527226105307963
+        }
+      ],
+      "test": {
+        "kl_mean": 1.7093023300170898,
+        "top1_agreement": 0.3794921875,
+        "nll": 5.358010493259804,
+        "ppl": 212.3021494529721,
+        "top1_accuracy": 0.1980392156862745
+      }
+    },
+    "honest": {
+      "variant": "W -> Q Q^T W, Q = orth(diag(g_ln1) [P | mean_in | ones]), rank 258, bias fix b += b_ln (I - QQ^T) W (exact)",
+      "per_layer": [
+        {
+          "layer": 1,
+          "eff_rank": 258,
+          "weight_frac_discarded": 0.7665843862186538
+        },
+        {
+          "layer": 2,
+          "eff_rank": 258,
+          "weight_frac_discarded": 0.7942644890911014
+        },
+        {
+          "layer": 3,
+          "eff_rank": 258,
+          "weight_frac_discarded": 0.8021092742240516
+        },
+        {
+          "layer": 4,
+          "eff_rank": 258,
+          "weight_frac_discarded": 0.8231173955566676
+        },
+        {
+          "layer": 5,
+          "eff_rank": 258,
+          "weight_frac_discarded": 0.8378140278148816
+        },
+        {
+          "layer": 6,
+          "eff_rank": 258,
+          "weight_frac_discarded": 0.8480759287498528
+        },
+        {
+          "layer": 7,
+          "eff_rank": 258,
+          "weight_frac_discarded": 0.8341212986128825
+        },
+        {
+          "layer": 8,
+          "eff_rank": 258,
+          "weight_frac_discarded": 0.8187333568890865
+        },
+        {
+          "layer": 9,
+          "eff_rank": 258,
+          "weight_frac_discarded": 0.7943276988092652
+        },
+        {
+          "layer": 10,
+          "eff_rank": 258,
+          "weight_frac_discarded": 0.7643021485062639
+        },
+        {
+          "layer": 11,
+          "eff_rank": 258,
+          "weight_frac_discarded": 0.7540813478915658
+        }
+      ],
+      "test": {
+        "kl_mean": 0.6930393874645233,
+        "top1_agreement": 0.5609375,
+        "nll": 4.369316645603554,
+        "ppl": 78.98963533775836,
+        "top1_accuracy": 0.2703921568627451
+      }
+    }
+  },
+  "mid_means": {
+    "cache": "mid_means_weight_compress.npz",
+    "calib_tokens": 51200,
+    "norms": [
+      20.521137237548828,
+      43.157142639160156,
+      41.40668487548828,
+      44.51240539550781,
+      44.95145034790039,
+      46.135250091552734,
+      49.47421646118164,
+      55.76134490966797,
+      67.59503936767578,
+      89.56185913085938,
+      148.9674530029297,
+      308.52276611328125
+    ]
+  },
+  "phase_b1": {
+    "desc": "student + output projections + mid-block projection (fresh calibrated means) at all 12 blocks, zero-shot",
+    "test": {
+      "kl_mean": 1.9433529376983643,
+      "top1_agreement": 0.30732421875,
+      "nll": 5.743960918351716,
+      "ppl": 312.29895506552407,
+      "top1_accuracy": 0.16372549019607843
+    }
+  },
+  "phase_b2": {
+    "desc": "re-parameterized model natively in 256-dim coords; LN exact in coords; block 0 hybrid (full c_attn)",
+    "fold_info": {
+      "q1_norm_before_normalization": 27.25400830305183
+    },
+    "parity_vs_b1": {
+      "max_abs_logit_diff": 0.001068115234375,
+      "mean_abs_logit_diff": 9.046254854183644e-05
+    },
+    "test": {
+      "kl_mean": 1.943352723121643,
+      "top1_agreement": 0.30732421875,
+      "nll": 5.743960870481005,
+      "ppl": 312.29894011555143,
+      "top1_accuracy": 0.16372549019607843
+    },
+    "params": {
+      "original_per_block": {
+        "c_attn": 1771776,
+        "attn_c_proj": 590592,
+        "c_fc": 2362368,
+        "mlp_c_proj": 2360064,
+        "ln_1": 1536,
+        "ln_2": 1536,
+        "total": 7087872
+      },
+      "compressed_per_block_1_to_11": 2376452,
+      "compressed_block0_hybrid": 3552770,
+      "compressed_global_container": 197889,
+      "blocks_total": {
+        "original": 85054464,
+        "compressed": 29891631,
+        "ratio": 2.8454273371700594
+      },
+      "full_model": {
+        "original": 124439808,
+        "compressed": 69276975,
+        "ratio": 1.7962650361104826,
+        "embeddings_plus_ln_f": 39385344
+      }
+    }
+  }
+}

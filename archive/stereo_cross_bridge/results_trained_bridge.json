@@ -1,0 +1,301 @@
+{
+  "model_dir": "/Users/motonishikoudai/.cache/huggingface/hub/models--Qwen--Qwen1.5-0.5B-Chat/snapshots/4d14e384a4b037942bb3f3016665157c8bcb70ea",
+  "module": "down_proj",
+  "layer_start": 0,
+  "layer_end_exclusive": 5,
+  "keys": [
+    "model.layers.0.mlp.down_proj.weight",
+    "model.layers.1.mlp.down_proj.weight",
+    "model.layers.2.mlp.down_proj.weight",
+    "model.layers.3.mlp.down_proj.weight",
+    "model.layers.4.mlp.down_proj.weight"
+  ],
+  "optimizer": {
+    "name": "adam",
+    "lr": 0.01,
+    "schedule": "cosine to lr/10",
+    "max_steps": 2000
+  },
+  "device": "cpu",
+  "runs": [
+    {
+      "rank": 32,
+      "shape": [
+        1024,
+        2816
+      ],
+      "layers": 5,
+      "svd_same_rank_rel_fro_mean": 0.9489198087934874,
+      "svd_same_rank_rel_fro_per_layer": [
+        0.9475421567423385,
+        0.9445563175596843,
+        0.951731885392975,
+        0.9502514913266356,
+        0.9505171929458038
+      ],
+      "bridge_rel_fro_mean_step0": 0.9928791522979736,
+      "bridge_rel_fro_mean_final": 0.9833797454833985,
+      "bridge_rel_fro_per_layer_step0": [
+        0.9928662180900574,
+        0.9911625385284424,
+        0.9917950630187988,
+        0.994007408618927,
+        0.9945645332336426
+      ],
+      "bridge_rel_fro_per_layer_final": [
+        0.9810202121734619,
+        0.9761228561401367,
+        0.9867960810661316,
+        0.9856742024421692,
+        0.9872853755950928
+      ],
+      "error_ratio_step0": 1.0463256674559032,
+      "error_ratio_final": 1.0363149091952517,
+      "params_bridge": 128000,
+      "r_svd_param_matched": 7,
+      "params_svd_matched": 134400,
+      "svd_param_matched_rel_fro_mean": 0.983234228950384,
+      "param_matched_win": false,
+      "steps_run": 500,
+      "steps_to_95pct": 40,
+      "wall_seconds": 6.775228023529053,
+      "loss_step0": 4.930924415588379,
+      "loss_final": 4.83712100982666,
+      "train_log": [
+        {
+          "step": 100,
+          "loss": 4.8381028175354,
+          "bridge_rel_fro_mean": 0.9834732294082642,
+          "lr": 0.009944597532678016
+        },
+        {
+          "step": 200,
+          "loss": 4.837263107299805,
+          "bridge_rel_fro_mean": 0.9833903551101685,
+          "lr": 0.009779754323327984
+        },
+        {
+          "step": 300,
+          "loss": 4.837129592895508,
+          "bridge_rel_fro_mean": 0.98337824344635,
+          "lr": 0.009509529358847375
+        },
+        {
+          "step": 400,
+          "loss": 4.837113857269287,
+          "bridge_rel_fro_mean": 0.9833763718605042,
+          "lr": 0.009140576474686895
+        },
+        {
+          "step": 500,
+          "loss": 4.83712100982666,
+          "bridge_rel_fro_mean": 0.9833797454833985,
+          "lr": 0.008681980515339072
+        }
+      ],
+      "verdict": "STILL_LOSES"
+    },
+    {
+      "rank": 64,
+      "shape": [
+        1024,
+        2816
+      ],
+      "layers": 5,
+      "svd_same_rank_rel_fro_mean": 0.9111610517553373,
+      "svd_same_rank_rel_fro_per_layer": [
+        0.9127083248011368,
+        0.9057932033863587,
+        0.9134943574902961,
+        0.9123894185172595,
+        0.9114199545816356
+      ],
+      "bridge_rel_fro_mean_step0": 0.9868523716926575,
+      "bridge_rel_fro_mean_final": 0.9719666719436646,
+      "bridge_rel_fro_per_layer_step0": [
+        0.9883767366409302,
+        0.9848123788833618,
+        0.9846690893173218,
+        0.9874578714370728,
+        0.9889457821846008
+      ],
+      "bridge_rel_fro_per_layer_final": [
+        0.9719399213790894,
+        0.9633449912071228,
+        0.9742955565452576,
+        0.9752180576324463,
+        0.9750348329544067
+      ],
+      "error_ratio_step0": 1.0830712855773434,
+      "error_ratio_final": 1.0667342179202965,
+      "params_bridge": 266240,
+      "r_svd_param_matched": 14,
+      "params_svd_matched": 268800,
+      "svd_param_matched_rel_fro_mean": 0.9726406872335515,
+      "param_matched_win": true,
+      "steps_run": 800,
+      "steps_to_95pct": 37,
+      "wall_seconds": 11.395304203033447,
+      "loss_step0": 4.871241569519043,
+      "loss_final": 4.7255096435546875,
+      "train_log": [
+        {
+          "step": 100,
+          "loss": 4.727097988128662,
+          "bridge_rel_fro_mean": 0.9721276998519898,
+          "lr": 0.009944597532678016
+        },
+        {
+          "step": 200,
+          "loss": 4.725977897644043,
+          "bridge_rel_fro_mean": 0.9720149040222168,
+          "lr": 0.009779754323327984
+        },
+        {
+          "step": 300,
+          "loss": 4.725827217102051,
+          "bridge_rel_fro_mean": 0.9719984531402588,
+          "lr": 0.009509529358847375
+        },
+        {
+          "step": 400,
+          "loss": 4.725641250610352,
+          "bridge_rel_fro_mean": 0.9719801664352417,
+          "lr": 0.009140576474686895
+        },
+        {
+          "step": 500,
+          "loss": 4.725579738616943,
+          "bridge_rel_fro_mean": 0.9719731092453003,
+          "lr": 0.008681980515339072
+        },
+        {
+          "step": 600,
+          "loss": 4.725541114807129,
+          "bridge_rel_fro_mean": 0.9719678163528442,
+          "lr": 0.008145033635315761
+        },
+        {
+          "step": 700,
+          "loss": 4.725522041320801,
+          "bridge_rel_fro_mean": 0.9719682574272156,
+          "lr": 0.0075429572488276255
+        },
+        {
+          "step": 800,
+          "loss": 4.7255096435546875,
+          "bridge_rel_fro_mean": 0.9719666719436646,
+          "lr": 0.0068905764746869606
+        }
+      ],
+      "verdict": "WIN_PARAM_MATCHED"
+    },
+    {
+      "rank": 128,
+      "shape": [
+        1024,
+        2816
+      ],
+      "layers": 5,
+      "svd_same_rank_rel_fro_mean": 0.8422533993767363,
+      "svd_same_rank_rel_fro_per_layer": [
+        0.849545320176914,
+        0.836558906639168,
+        0.8428590192213323,
+        0.8427916598168175,
+        0.8395120910294502
+      ],
+      "bridge_rel_fro_mean_step0": 0.9732851028442383,
+      "bridge_rel_fro_mean_final": 0.9491596937179565,
+      "bridge_rel_fro_per_layer_step0": [
+        0.9778099656105042,
+        0.9708479642868042,
+        0.9702749848365784,
+        0.9721912145614624,
+        0.9753013849258423
+      ],
+      "bridge_rel_fro_per_layer_final": [
+        0.9565531611442566,
+        0.9397834539413452,
+        0.948264479637146,
+        0.9502353072166443,
+        0.9509620666503906
+      ],
+      "error_ratio_step0": 1.1555727807860021,
+      "error_ratio_final": 1.1269288962446817,
+      "params_bridge": 573440,
+      "r_svd_param_matched": 30,
+      "params_svd_matched": 576000,
+      "svd_param_matched_rel_fro_mean": 0.9514238105543195,
+      "param_matched_win": true,
+      "steps_run": 1000,
+      "steps_to_95pct": 34,
+      "wall_seconds": 18.632312059402466,
+      "loss_step0": 4.738254547119141,
+      "loss_final": 4.5064239501953125,
+      "train_log": [
+        {
+          "step": 100,
+          "loss": 4.5087056159973145,
+          "bridge_rel_fro_mean": 0.9494071960449219,
+          "lr": 0.009944597532678016
+        },
+        {
+          "step": 200,
+          "loss": 4.507266998291016,
+          "bridge_rel_fro_mean": 0.9492554306983948,
+          "lr": 0.009779754323327984
+        },
+        {
+          "step": 300,
+          "loss": 4.506900310516357,
+          "bridge_rel_fro_mean": 0.9492109537124633,
+          "lr": 0.009509529358847375
+        },
+        {
+          "step": 400,
+          "loss": 4.506675720214844,
+          "bridge_rel_fro_mean": 0.9491865038871765,
+          "lr": 0.009140576474686895
+        },
+        {
+          "step": 500,
+          "loss": 4.506575107574463,
+          "bridge_rel_fro_mean": 0.9491761207580567,
+          "lr": 0.008681980515339072
+        },
+        {
+          "step": 600,
+          "loss": 4.506519317626953,
+          "bridge_rel_fro_mean": 0.9491724491119384,
+          "lr": 0.008145033635315761
+        },
+        {
+          "step": 700,
+          "loss": 4.506488800048828,
+          "bridge_rel_fro_mean": 0.9491691350936889,
+          "lr": 0.0075429572488276255
+        },
+        {
+          "step": 800,
+          "loss": 4.506462097167969,
+          "bridge_rel_fro_mean": 0.9491626858711243,
+          "lr": 0.0068905764746869606
+        },
+        {
+          "step": 900,
+          "loss": 4.506436824798584,
+          "bridge_rel_fro_mean": 0.9491609811782837,
+          "lr": 0.006203955092680771
+        },
+        {
+          "step": 1000,
+          "loss": 4.5064239501953125,
+          "bridge_rel_fro_mean": 0.9491596937179565,
+          "lr": 0.005499999999999771
+        }
+      ],
+      "verdict": "WIN_PARAM_MATCHED"
+    }
+  ]
+}

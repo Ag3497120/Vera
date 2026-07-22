@@ -1,0 +1,31 @@
+[model] loading openai-community/gpt2 ...
+[corpus] wikitext-2-raw-v1(train): 390 seqs x 256 tok = 99840 tokens; sampling 15000 vectors/layer
+  batch 1/49  sampled=276/15000  1s
+  batch 11/49  sampled=3369/15000  6s
+  batch 21/49  sampled=6407/15000  11s
+  batch 31/49  sampled=9494/15000  15s
+  batch 41/49  sampled=12600/15000  20s
+[collect] done: 15000 token vectors/layer, 24s
+
+=== site=resid (d=768, L=12) ===
+  CKA adjacent mean=0.8594 min=0.0396 offdiag mean=0.7298 (1s)
+  r= 16  per-layer PCA err=0.3353  shared err=0.3585  ratio=1.0898 (max 1.5691, raw-pool 1.1353)
+  r= 32  per-layer PCA err=0.3117  shared err=0.3342  ratio=1.0871 (max 1.4194, raw-pool 1.1268)
+  r= 64  per-layer PCA err=0.2805  shared err=0.3051  ratio=1.0992 (max 1.3878, raw-pool 1.1438)
+  (3s)
+
+=== site=mlp_out (d=768, L=12) ===
+  CKA adjacent mean=0.5249 min=0.2086 offdiag mean=0.2739 (1s)
+  r= 16  per-layer PCA err=0.6962  shared err=0.7289  ratio=1.0515 (max 1.0870, raw-pool 1.0561)
+  r= 32  per-layer PCA err=0.6644  shared err=0.7069  ratio=1.0702 (max 1.1101, raw-pool 1.0751)
+  r= 64  per-layer PCA err=0.6146  shared err=0.6729  ratio=1.1027 (max 1.1751, raw-pool 1.1112)
+  (3s)
+
+=== site=mlp_hidden (d=3072, L=12) ===
+  CKA adjacent mean=0.7394 min=0.2625 offdiag mean=0.5180 (14s)
+  r= 16  per-layer PCA err=0.8652  shared err=0.9533  ratio=1.1021 (max 1.1223, raw-pool 1.1046)
+  r= 32  per-layer PCA err=0.8180  shared err=0.9345  ratio=1.1428 (max 1.1634, raw-pool 1.1462)
+  r= 64  per-layer PCA err=0.7615  shared err=0.9069  ratio=1.1916 (max 1.2149, raw-pool 1.1943)
+  (143s)
+
+[activation_probe] wrote /Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/results_activation_probe.json

@@ -1,0 +1,94 @@
+/Users/motonishikoudai/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'wikitext-2-raw-v1' at /Users/motonishikoudai/.cache/huggingface/datasets/wikitext/wikitext-2-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Wed Jul 22 02:51:01 2026).
+Using the latest cached version of the dataset since wikitext couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'wikitext-2-raw-v1' at /Users/motonishikoudai/.cache/huggingface/datasets/wikitext/wikitext-2-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3 (last modified on Wed Jul 22 02:51:01 2026).
+[device] mps
+[basis] bases_cache_soft_distill.npz: V (768, 768), using top-256 columns
+[eval corpus] wikitext-2-raw-v1(test): 20 x 256 = 5120 tokens (same recipe/seed as prior test evals)
+[donor corpus] wikitext-2-raw-v1(validation): 4 x 256
+[student] loaded kl_distill_student_r256.pt
+[baseline] forward with capture ...
+[baseline] captured z: (12, 5120, 256); sigma[0..3]=[178.21800231933594, 38.28200149536133, 23.601999282836914, 18.016000747680664]
+[A1] all-layer ablation of 256 dims ...
+  [A1] 32/256 (91s)
+  [A1] 64/256 (182s)
+  [A1] 96/256 (274s)
+  [A1] 128/256 (369s)
+  [A1] 160/256 (466s)
+  [A1] 192/256 (564s)
+  [A1] 224/256 (630s)
+  [A1] 256/256 (680s)
+[A1] done in 680s; gini=0.854 top8_share=0.660 max KL=2.9935 (dim 0) median=0.00654
+[A2] per-layer ablation: 32 dims x 12 layers ...
+  [A2] dim 0 (1/32) max-layer KL=2.5604 at l=3 (19s)
+  [A2] dim 10 (2/32) max-layer KL=1.0593 at l=11 (38s)
+  [A2] dim 4 (3/32) max-layer KL=0.4189 at l=2 (57s)
+  [A2] dim 3 (4/32) max-layer KL=0.9548 at l=1 (75s)
+  [A2] dim 5 (5/32) max-layer KL=0.3330 at l=2 (93s)
+  [A2] dim 11 (6/32) max-layer KL=0.6679 at l=11 (130s)
+  [A2] dim 15 (7/32) max-layer KL=0.3063 at l=11 (160s)
+  [A2] dim 9 (8/32) max-layer KL=0.2052 at l=11 (191s)
+  [A2] dim 1 (9/32) max-layer KL=0.2520 at l=11 (215s)
+  [A2] dim 14 (10/32) max-layer KL=0.2276 at l=11 (234s)
+  [A2] dim 2 (11/32) max-layer KL=0.0795 at l=6 (252s)
+  [A2] dim 17 (12/32) max-layer KL=0.1584 at l=11 (271s)
+  [A2] dim 16 (13/32) max-layer KL=0.1239 at l=11 (292s)
+  [A2] dim 34 (14/32) max-layer KL=0.1365 at l=11 (312s)
+  [A2] dim 18 (15/32) max-layer KL=0.1083 at l=11 (330s)
+  [A2] dim 8 (16/32) max-layer KL=0.0227 at l=11 (348s)
+  [A2] dim 13 (17/32) max-layer KL=0.0473 at l=11 (366s)
+  [A2] dim 23 (18/32) max-layer KL=0.0572 at l=11 (385s)
+  [A2] dim 32 (19/32) max-layer KL=0.0822 at l=11 (403s)
+  [A2] dim 29 (20/32) max-layer KL=0.0707 at l=11 (424s)
+  [A2] dim 12 (21/32) max-layer KL=0.0372 at l=11 (445s)
+  [A2] dim 26 (22/32) max-layer KL=0.0600 at l=11 (467s)
+  [A2] dim 20 (23/32) max-layer KL=0.0542 at l=11 (487s)
+  [A2] dim 6 (24/32) max-layer KL=0.0825 at l=11 (508s)
+  [A2] dim 35 (25/32) max-layer KL=0.0503 at l=11 (529s)
+  [A2] dim 30 (26/32) max-layer KL=0.0425 at l=11 (550s)
+  [A2] dim 31 (27/32) max-layer KL=0.0340 at l=11 (570s)
+  [A2] dim 39 (28/32) max-layer KL=0.0321 at l=11 (592s)
+  [A2] dim 41 (29/32) max-layer KL=0.0308 at l=11 (614s)
+  [A2] dim 22 (30/32) max-layer KL=0.0137 at l=11 (636s)
+  [A2] dim 25 (31/32) max-layer KL=0.0132 at l=11 (658s)
+  [A2] dim 19 (32/32) max-layer KL=0.0223 at l=11 (678s)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/response_map.py:275: RuntimeWarning: divide by zero encountered in matmul
+  return float((a / na) @ (b / nb))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/response_map.py:275: RuntimeWarning: overflow encountered in matmul
+  return float((a / na) @ (b / nb))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/response_map.py:275: RuntimeWarning: invalid value encountered in matmul
+  return float((a / na) @ (b / nb))
+[A2] done in 678s
+[B] cross-layer consistency ...
+  [B1] ablation profiles: same-dim 0.526 +/- 0.261 (n=2112), null 0.191 +/- 0.097
+  [B2] activation profiles: same-dim 0.808, null 0.001
+[C] semantics of top-16 dims ...
+  [C] dim 0: sign-sym cos=-0.594 odd_frac=0.38 (4s)
+  [C] dim 10: sign-sym cos=0.451 odd_frac=0.557 (8s)
+  [C] dim 4: sign-sym cos=-0.167 odd_frac=0.458 (12s)
+  [C] dim 3: sign-sym cos=-0.839 odd_frac=0.229 (15s)
+  [C] dim 5: sign-sym cos=-0.104 odd_frac=0.474 (19s)
+  [C] dim 11: sign-sym cos=0.092 odd_frac=0.522 (23s)
+  [C] dim 15: sign-sym cos=0.571 odd_frac=0.624 (27s)
+  [C] dim 9: sign-sym cos=0.585 odd_frac=0.598 (31s)
+  [C] dim 1: sign-sym cos=0.421 odd_frac=0.598 (35s)
+  [C] dim 14: sign-sym cos=0.536 odd_frac=0.594 (39s)
+  [C] dim 2: sign-sym cos=-0.342 odd_frac=0.435 (43s)
+  [C] dim 17: sign-sym cos=0.088 odd_frac=0.517 (46s)
+  [C] dim 16: sign-sym cos=0.547 odd_frac=0.611 (50s)
+  [C] dim 34: sign-sym cos=0.571 odd_frac=0.649 (54s)
+  [C] dim 18: sign-sym cos=0.769 odd_frac=0.729 (58s)
+  [C] dim 8: sign-sym cos=0.613 odd_frac=0.666 (63s)
+[C] done in 79s
+[D] write-transfer ...
+  [D] dim 0: all-layer dir=0.9146 split-half cos=0.9942 one-vs-all cos=0.9981 (2s)
+  [D] dim 10: all-layer dir=0.7033 split-half cos=0.978 one-vs-all cos=0.6993 (4s)
+  [D] dim 4: all-layer dir=0.8554 split-half cos=0.9945 one-vs-all cos=0.7048 (6s)
+  [D] dim 3: all-layer dir=0.888 split-half cos=0.9966 one-vs-all cos=0.3498 (8s)
+  [D] dim 231: all-layer dir=0.701 split-half cos=0.9797 one-vs-all cos=0.677 (10s)
+  [D] dim 184: all-layer dir=0.7005 split-half cos=0.9839 one-vs-all cos=0.7896 (11s)
+[D] done in 11s
+[done] wrote /Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/results_response_map.json (wall 1463s)
+)
