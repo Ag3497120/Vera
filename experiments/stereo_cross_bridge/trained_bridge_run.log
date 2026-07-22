@@ -1,0 +1,82 @@
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:138: RuntimeWarning: divide by zero encountered in matmul
+  return (U.astype(np.float64) * S.astype(np.float64)) @ V.astype(np.float64).T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:138: RuntimeWarning: overflow encountered in matmul
+  return (U.astype(np.float64) * S.astype(np.float64)) @ V.astype(np.float64).T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:138: RuntimeWarning: invalid value encountered in matmul
+  return (U.astype(np.float64) * S.astype(np.float64)) @ V.astype(np.float64).T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:130: RuntimeWarning: divide by zero encountered in matmul
+  return Ub.T @ W @ Vb
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:130: RuntimeWarning: overflow encountered in matmul
+  return Ub.T @ W @ Vb
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:130: RuntimeWarning: invalid value encountered in matmul
+  return Ub.T @ W @ Vb
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:138: RuntimeWarning: divide by zero encountered in matmul
+  return (U.astype(np.float64) * S.astype(np.float64)) @ V.astype(np.float64).T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:138: RuntimeWarning: overflow encountered in matmul
+  return (U.astype(np.float64) * S.astype(np.float64)) @ V.astype(np.float64).T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:138: RuntimeWarning: invalid value encountered in matmul
+  return (U.astype(np.float64) * S.astype(np.float64)) @ V.astype(np.float64).T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:130: RuntimeWarning: divide by zero encountered in matmul
+  return Ub.T @ W @ Vb
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:130: RuntimeWarning: overflow encountered in matmul
+  return Ub.T @ W @ Vb
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:130: RuntimeWarning: invalid value encountered in matmul
+  return Ub.T @ W @ Vb
+[trained-bridge] model_dir=/Users/motonishikoudai/.cache/huggingface/hub/models--Qwen--Qwen1.5-0.5B-Chat/snapshots/4d14e384a4b037942bb3f3016665157c8bcb70ea module=down_proj layers=[0,5) device=cpu
+  loaded model.layers.0.mlp.down_proj.weight (1024, 2816)
+  loaded model.layers.1.mlp.down_proj.weight (1024, 2816)
+  loaded model.layers.2.mlp.down_proj.weight (1024, 2816)
+  loaded model.layers.3.mlp.down_proj.weight (1024, 2816)
+  loaded model.layers.4.mlp.down_proj.weight (1024, 2816)
+
+=== rank=32 ===
+  SVD(same rank) rel_fro mean=0.948920
+  param-matched SVD: r_svd=7 (bridge 128,000 vs svd 134,400 params) rel_fro mean=0.983234
+    step   100  loss=4.838103  rel_fro_mean=0.983473  lr=9.94e-03
+    step   200  loss=4.837263  rel_fro_mean=0.983390  lr=9.78e-03
+    step   300  loss=4.837130  rel_fro_mean=0.983378  lr=9.51e-03
+    step   400  loss=4.837114  rel_fro_mean=0.983376  lr=9.14e-03
+    step   500  loss=4.837121  rel_fro_mean=0.983380  lr=8.68e-03
+    early stop at step 500 (plateau)
+  step0:  bridge=0.992879  ratio=1.046
+  final:  bridge=0.983380  ratio=1.036
+  param-matched: bridge 0.983380 vs SVD(r=7) 0.983234 -> LOSE
+  steps_to_95pct=40  wall=6.8s  verdict=STILL_LOSES
+
+=== rank=64 ===
+  SVD(same rank) rel_fro mean=0.911161
+  param-matched SVD: r_svd=14 (bridge 266,240 vs svd 268,800 params) rel_fro mean=0.972641
+    step   100  loss=4.727098  rel_fro_mean=0.972128  lr=9.94e-03
+    step   200  loss=4.725978  rel_fro_mean=0.972015  lr=9.78e-03
+    step   300  loss=4.725827  rel_fro_mean=0.971998  lr=9.51e-03
+    step   400  loss=4.725641  rel_fro_mean=0.971980  lr=9.14e-03
+    step   500  loss=4.725580  rel_fro_mean=0.971973  lr=8.68e-03
+    step   600  loss=4.725541  rel_fro_mean=0.971968  lr=8.15e-03
+    step   700  loss=4.725522  rel_fro_mean=0.971968  lr=7.54e-03
+    step   800  loss=4.725510  rel_fro_mean=0.971967  lr=6.89e-03
+    early stop at step 800 (plateau)
+  step0:  bridge=0.986852  ratio=1.083
+  final:  bridge=0.971967  ratio=1.067
+  param-matched: bridge 0.971967 vs SVD(r=14) 0.972641 -> WIN
+  steps_to_95pct=37  wall=11.4s  verdict=WIN_PARAM_MATCHED
+
+=== rank=128 ===
+  SVD(same rank) rel_fro mean=0.842253
+  param-matched SVD: r_svd=30 (bridge 573,440 vs svd 576,000 params) rel_fro mean=0.951424
+    step   100  loss=4.508706  rel_fro_mean=0.949407  lr=9.94e-03
+    step   200  loss=4.507267  rel_fro_mean=0.949255  lr=9.78e-03
+    step   300  loss=4.506900  rel_fro_mean=0.949211  lr=9.51e-03
+    step   400  loss=4.506676  rel_fro_mean=0.949187  lr=9.14e-03
+    step   500  loss=4.506575  rel_fro_mean=0.949176  lr=8.68e-03
+    step   600  loss=4.506519  rel_fro_mean=0.949172  lr=8.15e-03
+    step   700  loss=4.506489  rel_fro_mean=0.949169  lr=7.54e-03
+    step   800  loss=4.506462  rel_fro_mean=0.949163  lr=6.89e-03
+    step   900  loss=4.506437  rel_fro_mean=0.949161  lr=6.20e-03
+    step  1000  loss=4.506424  rel_fro_mean=0.949160  lr=5.50e-03
+    early stop at step 1000 (plateau)
+  step0:  bridge=0.973285  ratio=1.156
+  final:  bridge=0.949160  ratio=1.127
+  param-matched: bridge 0.949160 vs SVD(r=30) 0.951424 -> WIN
+  steps_to_95pct=34  wall=18.6s  verdict=WIN_PARAM_MATCHED
+
+[trained-bridge] wrote /Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/results_trained_bridge.json

@@ -1,0 +1,163 @@
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:138: RuntimeWarning: divide by zero encountered in matmul
+  return (U.astype(np.float64) * S.astype(np.float64)) @ V.astype(np.float64).T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:138: RuntimeWarning: overflow encountered in matmul
+  return (U.astype(np.float64) * S.astype(np.float64)) @ V.astype(np.float64).T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:138: RuntimeWarning: invalid value encountered in matmul
+  return (U.astype(np.float64) * S.astype(np.float64)) @ V.astype(np.float64).T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:130: RuntimeWarning: divide by zero encountered in matmul
+  return Ub.T @ W @ Vb
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:130: RuntimeWarning: overflow encountered in matmul
+  return Ub.T @ W @ Vb
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:130: RuntimeWarning: invalid value encountered in matmul
+  return Ub.T @ W @ Vb
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:134: RuntimeWarning: divide by zero encountered in matmul
+  return Ub @ C @ Vb.T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:134: RuntimeWarning: overflow encountered in matmul
+  return Ub @ C @ Vb.T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/shared_bridge_vs_svd.py:134: RuntimeWarning: invalid value encountered in matmul
+  return Ub @ C @ Vb.T
+[per-head] model_dir=/Users/motonishikoudai/.cache/huggingface/hub/models--Qwen--Qwen1.5-0.5B-Chat/snapshots/4d14e384a4b037942bb3f3016665157c8bcb70ea
+[per-head] config hidden=1024 n_q=16 n_kv=16 head_dim=64 GQA=False
+
+[per-head] module=q_proj n_heads=16 head_dim=64 GQA=False layers=[0,5)
+  loaded model.layers.0.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.1.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.2.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.3.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.4.self_attn.q_proj.weight (1024, 1024)
+[per-head] full W shape=(1024,1024); per-head=(64,1024)
+[per-head] ranks requested=[8, 16, 32] effective=[8, 16, 32] (cap=min(head_dim,hidden)-1=63)
+  rank 8 = 0.125 × head_dim
+  rank 16 = 0.250 × head_dim
+  rank 32 = 0.500 × head_dim
+
+=== q_proj rank=8 ===
+  head[00] bridge/SVD=1.2772 svd=0.7663 bridge=0.9787
+  head[01] bridge/SVD=1.2442 svd=0.7847 bridge=0.9763
+  head[02] bridge/SVD=1.2928 svd=0.7533 bridge=0.9739
+  head[03] bridge/SVD=1.3139 svd=0.7426 bridge=0.9757
+  head[04] bridge/SVD=1.3156 svd=0.7384 bridge=0.9715
+  head[05] bridge/SVD=1.3047 svd=0.7519 bridge=0.9810
+  head[06] bridge/SVD=1.2853 svd=0.7604 bridge=0.9774
+  head[07] bridge/SVD=1.3598 svd=0.7186 bridge=0.9772
+  head[08] bridge/SVD=1.2735 svd=0.7666 bridge=0.9762
+  head[09] bridge/SVD=1.2836 svd=0.7617 bridge=0.9778
+  head[10] bridge/SVD=1.2688 svd=0.7731 bridge=0.9809
+  head[11] bridge/SVD=1.2836 svd=0.7621 bridge=0.9781
+  head[12] bridge/SVD=1.2599 svd=0.7790 bridge=0.9815
+  head[13] bridge/SVD=1.3110 svd=0.7457 bridge=0.9777
+  head[14] bridge/SVD=1.2696 svd=0.7703 bridge=0.9780
+  head[15] bridge/SVD=1.3071 svd=0.7490 bridge=0.9790
+  summary mean=1.2907 std=0.0268 cv=0.0207 min=h1(1.2442) max=h7(1.3598)
+
+=== q_proj rank=16 ===
+  head[00] bridge/SVD=1.5144 svd=0.6329 bridge=0.9585
+  head[01] bridge/SVD=1.4467 svd=0.6642 bridge=0.9608
+  head[02] bridge/SVD=1.4927 svd=0.6380 bridge=0.9524
+  head[03] bridge/SVD=1.5359 svd=0.6210 bridge=0.9538
+  head[04] bridge/SVD=1.5335 svd=0.6196 bridge=0.9502
+  head[05] bridge/SVD=1.4948 svd=0.6396 bridge=0.9560
+  head[06] bridge/SVD=1.4862 svd=0.6446 bridge=0.9580
+  head[07] bridge/SVD=1.5729 svd=0.6059 bridge=0.9530
+  head[08] bridge/SVD=1.5102 svd=0.6278 bridge=0.9481
+  head[09] bridge/SVD=1.4744 svd=0.6491 bridge=0.9570
+  head[10] bridge/SVD=1.4467 svd=0.6658 bridge=0.9631
+  head[11] bridge/SVD=1.4638 svd=0.6540 bridge=0.9573
+  head[12] bridge/SVD=1.4422 svd=0.6671 bridge=0.9620
+  head[13] bridge/SVD=1.4973 svd=0.6379 bridge=0.9551
+  head[14] bridge/SVD=1.5152 svd=0.6300 bridge=0.9546
+  head[15] bridge/SVD=1.5255 svd=0.6255 bridge=0.9542
+  summary mean=1.4970 std=0.0354 cv=0.0236 min=h12(1.4422) max=h7(1.5729)
+
+=== q_proj rank=32 ===
+  head[00] bridge/SVD=2.1928 svd=0.4109 bridge=0.9011
+  head[01] bridge/SVD=1.9363 svd=0.4715 bridge=0.9130
+  head[02] bridge/SVD=2.0551 svd=0.4412 bridge=0.9068
+  head[03] bridge/SVD=2.1198 svd=0.4233 bridge=0.8974
+  head[04] bridge/SVD=2.1459 svd=0.4164 bridge=0.8935
+  head[05] bridge/SVD=2.0080 svd=0.4517 bridge=0.9070
+  head[06] bridge/SVD=1.9868 svd=0.4590 bridge=0.9120
+  head[07] bridge/SVD=2.1424 svd=0.4186 bridge=0.8969
+  head[08] bridge/SVD=2.1074 svd=0.4220 bridge=0.8894
+  head[09] bridge/SVD=1.9838 svd=0.4580 bridge=0.9085
+  head[10] bridge/SVD=1.9327 svd=0.4741 bridge=0.9163
+  head[11] bridge/SVD=1.9584 svd=0.4633 bridge=0.9074
+  head[12] bridge/SVD=1.9374 svd=0.4725 bridge=0.9154
+  head[13] bridge/SVD=1.9914 svd=0.4534 bridge=0.9028
+  head[14] bridge/SVD=2.1211 svd=0.4222 bridge=0.8955
+  head[15] bridge/SVD=2.0815 svd=0.4299 bridge=0.8949
+  summary mean=2.0438 std=0.0841 cv=0.0411 min=h10(1.9327) max=h0(2.1928)
+
+[per-head] module=k_proj n_heads=16 head_dim=64 GQA=False layers=[0,5)
+  loaded model.layers.0.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.1.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.2.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.3.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.4.self_attn.k_proj.weight (1024, 1024)
+[per-head] full W shape=(1024,1024); per-head=(64,1024)
+[per-head] ranks requested=[8, 16, 32] effective=[8, 16, 32] (cap=min(head_dim,hidden)-1=63)
+  rank 8 = 0.125 × head_dim
+  rank 16 = 0.250 × head_dim
+  rank 32 = 0.500 × head_dim
+
+=== k_proj rank=8 ===
+  head[00] bridge/SVD=1.2941 svd=0.7550 bridge=0.9770
+  head[01] bridge/SVD=1.3067 svd=0.7490 bridge=0.9788
+  head[02] bridge/SVD=1.3107 svd=0.7480 bridge=0.9804
+  head[03] bridge/SVD=1.3462 svd=0.7275 bridge=0.9793
+  head[04] bridge/SVD=1.3401 svd=0.7304 bridge=0.9788
+  head[05] bridge/SVD=1.3030 svd=0.7529 bridge=0.9811
+  head[06] bridge/SVD=1.3097 svd=0.7426 bridge=0.9726
+  head[07] bridge/SVD=1.3402 svd=0.7284 bridge=0.9761
+  head[08] bridge/SVD=1.2821 svd=0.7623 bridge=0.9774
+  head[09] bridge/SVD=1.2891 svd=0.7553 bridge=0.9737
+  head[10] bridge/SVD=1.2895 svd=0.7630 bridge=0.9839
+  head[11] bridge/SVD=1.2861 svd=0.7629 bridge=0.9813
+  head[12] bridge/SVD=1.2807 svd=0.7670 bridge=0.9822
+  head[13] bridge/SVD=1.3165 svd=0.7394 bridge=0.9734
+  head[14] bridge/SVD=1.2649 svd=0.7707 bridge=0.9748
+  head[15] bridge/SVD=1.3105 svd=0.7480 bridge=0.9803
+  summary mean=1.3044 std=0.0225 cv=0.0172 min=h14(1.2649) max=h3(1.3462)
+
+=== k_proj rank=16 ===
+  head[00] bridge/SVD=1.5289 svd=0.6248 bridge=0.9553
+  head[01] bridge/SVD=1.4996 svd=0.6429 bridge=0.9642
+  head[02] bridge/SVD=1.5181 svd=0.6347 bridge=0.9635
+  head[03] bridge/SVD=1.5661 svd=0.6136 bridge=0.9609
+  head[04] bridge/SVD=1.5585 svd=0.6122 bridge=0.9541
+  head[05] bridge/SVD=1.5121 svd=0.6339 bridge=0.9585
+  head[06] bridge/SVD=1.5054 svd=0.6347 bridge=0.9555
+  head[07] bridge/SVD=1.5472 svd=0.6162 bridge=0.9533
+  head[08] bridge/SVD=1.5384 svd=0.6184 bridge=0.9514
+  head[09] bridge/SVD=1.4829 svd=0.6426 bridge=0.9529
+  head[10] bridge/SVD=1.4661 svd=0.6593 bridge=0.9666
+  head[11] bridge/SVD=1.4739 svd=0.6525 bridge=0.9617
+  head[12] bridge/SVD=1.4699 svd=0.6563 bridge=0.9647
+  head[13] bridge/SVD=1.5043 svd=0.6355 bridge=0.9560
+  head[14] bridge/SVD=1.5323 svd=0.6212 bridge=0.9518
+  head[15] bridge/SVD=1.5392 svd=0.6236 bridge=0.9598
+  summary mean=1.5152 std=0.0304 cv=0.0201 min=h10(1.4661) max=h3(1.5661)
+
+=== k_proj rank=32 ===
+  head[00] bridge/SVD=2.1753 svd=0.4140 bridge=0.9006
+  head[01] bridge/SVD=2.0148 svd=0.4581 bridge=0.9230
+  head[02] bridge/SVD=2.0781 svd=0.4389 bridge=0.9121
+  head[03] bridge/SVD=2.1123 svd=0.4319 bridge=0.9122
+  head[04] bridge/SVD=2.1809 svd=0.4127 bridge=0.9002
+  head[05] bridge/SVD=2.0235 svd=0.4478 bridge=0.9062
+  head[06] bridge/SVD=2.0158 svd=0.4511 bridge=0.9094
+  head[07] bridge/SVD=2.0793 svd=0.4329 bridge=0.9001
+  head[08] bridge/SVD=2.1524 svd=0.4149 bridge=0.8930
+  head[09] bridge/SVD=1.9949 svd=0.4553 bridge=0.9083
+  head[10] bridge/SVD=1.9415 svd=0.4745 bridge=0.9213
+  head[11] bridge/SVD=1.9833 svd=0.4599 bridge=0.9120
+  head[12] bridge/SVD=1.9713 svd=0.4660 bridge=0.9186
+  head[13] bridge/SVD=2.0108 svd=0.4506 bridge=0.9060
+  head[14] bridge/SVD=2.1772 svd=0.4129 bridge=0.8989
+  head[15] bridge/SVD=2.0906 svd=0.4318 bridge=0.9026
+  summary mean=2.0626 std=0.0767 cv=0.0372 min=h10(1.9415) max=h4(2.1809)
+
+[per-head] FORK verdict=UNIFORM_ROPE @ r=32
+[per-head] All heads show similarly elevated bridge/SVD (low CV, none MLP-like); favors RoPE frequency structure over head functional specialization.
+
+[per-head] wrote /Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/results_per_head_L0-4.json

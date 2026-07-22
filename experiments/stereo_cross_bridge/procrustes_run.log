@@ -1,0 +1,204 @@
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/procrustes_layer_align.py:62: RuntimeWarning: divide by zero encountered in matmul
+  M = A @ B.T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/procrustes_layer_align.py:62: RuntimeWarning: overflow encountered in matmul
+  M = A @ B.T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/procrustes_layer_align.py:62: RuntimeWarning: invalid value encountered in matmul
+  M = A @ B.T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/procrustes_layer_align.py:72: RuntimeWarning: divide by zero encountered in matmul
+  R = U @ Vt
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/procrustes_layer_align.py:72: RuntimeWarning: overflow encountered in matmul
+  R = U @ Vt
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/procrustes_layer_align.py:72: RuntimeWarning: invalid value encountered in matmul
+  R = U @ Vt
+/Users/motonishikoudai/Library/Python/3.9/lib/python/site-packages/numpy/linalg/_linalg.py:2311: RuntimeWarning: divide by zero encountered in slogdet
+  sign, logdet = _umath_linalg.slogdet(a, signature=signature)
+/Users/motonishikoudai/Library/Python/3.9/lib/python/site-packages/numpy/linalg/_linalg.py:2311: RuntimeWarning: overflow encountered in slogdet
+  sign, logdet = _umath_linalg.slogdet(a, signature=signature)
+/Users/motonishikoudai/Library/Python/3.9/lib/python/site-packages/numpy/linalg/_linalg.py:2311: RuntimeWarning: invalid value encountered in slogdet
+  sign, logdet = _umath_linalg.slogdet(a, signature=signature)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/procrustes_layer_align.py:78: RuntimeWarning: divide by zero encountered in matmul
+  rel = relative_fro_diff(A, R @ B)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/procrustes_layer_align.py:78: RuntimeWarning: overflow encountered in matmul
+  rel = relative_fro_diff(A, R @ B)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_bridge/procrustes_layer_align.py:78: RuntimeWarning: invalid value encountered in matmul
+  rel = relative_fro_diff(A, R @ B)
+[procrustes] model_dir=/Users/motonishikoudai/.cache/huggingface/hub/models--Qwen--Qwen1.5-0.5B-Chat/snapshots/4d14e384a4b037942bb3f3016665157c8bcb70ea
+[procrustes] modules=['q_proj', 'k_proj', 'v_proj', 'down_proj']  n_random=30  n_shuffle=30
+
+=== module=q_proj layers=[0,5) ===
+  loaded model.layers.0.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.1.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.2.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.3.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.4.self_attn.q_proj.weight (1024, 1024)
+  L0→L1: raw=2.2279  proc_O=1.8905  proc_SO=1.8905  ratio=0.8485  det_O=-1
+  L1→L2: raw=1.5185  proc_O=0.8312  proc_SO=0.8312  ratio=0.5474  det_O=+1
+  L2→L3: raw=1.4476  proc_O=0.7406  proc_SO=0.7406  ratio=0.5116  det_O=+1
+  L3→L4: raw=1.3711  proc_O=0.7024  proc_SO=0.7024  ratio=0.5123  det_O=-1
+  [baseline] random Gaussian n=30 ...
+  random proc_rel mean=0.7075 p05=0.7064  (4.5s)
+  [baseline] column/entry shuffle on L1→L2 n=30 ...
+  col-shuffle mean=0.8954  entry-shuffle mean=0.8189
+  summary proc_O mean=1.0412  (ex-first-pair=0.7581)  vs random ratio=1.472  fork=NO_STRUCTURE_UNDER_PROBE
+
+=== module=k_proj layers=[0,5) ===
+  loaded model.layers.0.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.1.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.2.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.3.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.4.self_attn.k_proj.weight (1024, 1024)
+  L0→L1: raw=2.0673  proc_O=1.7611  proc_SO=1.7611  ratio=0.8519  det_O=+1
+  L1→L2: raw=1.5210  proc_O=0.8402  proc_SO=0.8402  ratio=0.5524  det_O=-1
+  L2→L3: raw=1.4476  proc_O=0.7497  proc_SO=0.7497  ratio=0.5179  det_O=-1
+  L3→L4: raw=1.3793  proc_O=0.7183  proc_SO=0.7183  ratio=0.5207  det_O=+1
+  [baseline] random Gaussian n=30 ...
+  random proc_rel mean=0.7075 p05=0.7067  (4.5s)
+  [baseline] column/entry shuffle on L1→L2 n=30 ...
+  col-shuffle mean=0.8856  entry-shuffle mean=0.8208
+  summary proc_O mean=1.0173  (ex-first-pair=0.7694)  vs random ratio=1.438  fork=NO_STRUCTURE_UNDER_PROBE
+
+=== module=v_proj layers=[0,5) ===
+  loaded model.layers.0.self_attn.v_proj.weight (1024, 1024)
+  loaded model.layers.1.self_attn.v_proj.weight (1024, 1024)
+  loaded model.layers.2.self_attn.v_proj.weight (1024, 1024)
+  loaded model.layers.3.self_attn.v_proj.weight (1024, 1024)
+  loaded model.layers.4.self_attn.v_proj.weight (1024, 1024)
+  L0→L1: raw=1.4884  proc_O=0.8140  proc_SO=0.8140  ratio=0.5469  det_O=-1
+  L1→L2: raw=1.3917  proc_O=0.7151  proc_SO=0.7151  ratio=0.5138  det_O=+1
+  L2→L3: raw=1.3844  proc_O=0.6877  proc_SO=0.6877  ratio=0.4968  det_O=+1
+  L3→L4: raw=1.4127  proc_O=0.6901  proc_SO=0.6901  ratio=0.4885  det_O=-1
+  [baseline] random Gaussian n=30 ...
+  random proc_rel mean=0.7074 p05=0.7066  (4.5s)
+  [baseline] column/entry shuffle on L1→L2 n=30 ...
+  col-shuffle mean=0.7577  entry-shuffle mean=0.7309
+  summary proc_O mean=0.7267  (ex-first-pair=0.6977)  vs random ratio=1.027  fork=NO_STRUCTURE_UNDER_PROBE
+
+=== module=down_proj layers=[0,5) ===
+  loaded model.layers.0.mlp.down_proj.weight (1024, 2816)
+  loaded model.layers.1.mlp.down_proj.weight (1024, 2816)
+  loaded model.layers.2.mlp.down_proj.weight (1024, 2816)
+  loaded model.layers.3.mlp.down_proj.weight (1024, 2816)
+  loaded model.layers.4.mlp.down_proj.weight (1024, 2816)
+  L0→L1: raw=1.4649  proc_O=1.0494  proc_SO=1.0494  ratio=0.7164  det_O=-1
+  L1→L2: raw=1.4076  proc_O=1.0125  proc_SO=1.0125  ratio=0.7193  det_O=-1
+  L2→L3: raw=1.3959  proc_O=1.0025  proc_SO=1.0025  ratio=0.7182  det_O=-1
+  L3→L4: raw=1.4135  proc_O=1.0172  proc_SO=1.0172  ratio=0.7197  det_O=-1
+  [baseline] random Gaussian n=30 ...
+  random proc_rel mean=1.0077 p05=1.0071  (5.4s)
+  [baseline] column/entry shuffle on L1→L2 n=30 ...
+  col-shuffle mean=1.0126  entry-shuffle mean=1.0076
+  summary proc_O mean=1.0204  (ex-first-pair=1.0107)  vs random ratio=1.013  fork=NO_STRUCTURE_UNDER_PROBE
+
+=== cross-module: q_proj_L → tgt_{L+1} ===
+  loaded model.layers.0.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.1.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.2.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.3.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.4.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.0.self_attn.v_proj.weight (1024, 1024)
+  loaded model.layers.1.self_attn.v_proj.weight (1024, 1024)
+  loaded model.layers.2.self_attn.v_proj.weight (1024, 1024)
+  loaded model.layers.3.self_attn.v_proj.weight (1024, 1024)
+  loaded model.layers.4.self_attn.v_proj.weight (1024, 1024)
+  q_proj_L → v_proj_{L+1}: proc_O mean=2.6129  raw mean=3.2699  ratio=0.7563
+  loaded model.layers.0.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.1.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.2.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.3.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.4.self_attn.k_proj.weight (1024, 1024)
+  q_proj_L → k_proj_{L+1}: proc_O mean=1.0339  raw mean=1.5989  ratio=0.6210
+
+=== module=q_proj layers=[19,24) ===
+  loaded model.layers.19.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.20.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.21.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.22.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.23.self_attn.q_proj.weight (1024, 1024)
+  L19→L20: raw=1.4156  proc_O=0.6713  proc_SO=0.6713  ratio=0.4742  det_O=-1
+  L20→L21: raw=1.4500  proc_O=0.6852  proc_SO=0.6852  ratio=0.4725  det_O=-1
+  L21→L22: raw=1.4028  proc_O=0.7345  proc_SO=0.7345  ratio=0.5236  det_O=+1
+  L22→L23: raw=1.4219  proc_O=0.7960  proc_SO=0.7960  ratio=0.5598  det_O=+1
+  [baseline] random Gaussian n=30 ...
+  random proc_rel mean=0.7073 p05=0.7065  (4.6s)
+  [baseline] column/entry shuffle on L20→L21 n=30 ...
+  col-shuffle mean=0.9571  entry-shuffle mean=0.8733
+  summary proc_O mean=0.7217  (ex-first-pair=0.7386)  vs random ratio=1.020  fork=NO_STRUCTURE_UNDER_PROBE
+
+=== module=k_proj layers=[19,24) ===
+  loaded model.layers.19.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.20.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.21.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.22.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.23.self_attn.k_proj.weight (1024, 1024)
+  L19→L20: raw=1.4326  proc_O=0.7014  proc_SO=0.7014  ratio=0.4896  det_O=-1
+  L20→L21: raw=1.4347  proc_O=0.6963  proc_SO=0.6963  ratio=0.4853  det_O=+1
+  L21→L22: raw=1.4600  proc_O=0.7239  proc_SO=0.7239  ratio=0.4959  det_O=+1
+  L22→L23: raw=1.3367  proc_O=0.6976  proc_SO=0.6976  ratio=0.5219  det_O=+1
+  [baseline] random Gaussian n=30 ...
+  random proc_rel mean=0.7073 p05=0.7065  (4.5s)
+  [baseline] column/entry shuffle on L20→L21 n=30 ...
+  col-shuffle mean=0.9112  entry-shuffle mean=0.8321
+  summary proc_O mean=0.7048  (ex-first-pair=0.7059)  vs random ratio=0.996  fork=WEAK_SIGNAL
+
+=== module=v_proj layers=[19,24) ===
+  loaded model.layers.19.self_attn.v_proj.weight (1024, 1024)
+  loaded model.layers.20.self_attn.v_proj.weight (1024, 1024)
+  loaded model.layers.21.self_attn.v_proj.weight (1024, 1024)
+  loaded model.layers.22.self_attn.v_proj.weight (1024, 1024)
+  loaded model.layers.23.self_attn.v_proj.weight (1024, 1024)
+  L19→L20: raw=1.3920  proc_O=0.6765  proc_SO=0.6765  ratio=0.4860  det_O=-1
+  L20→L21: raw=1.3544  proc_O=0.6783  proc_SO=0.6783  ratio=0.5008  det_O=+1
+  L21→L22: raw=1.4252  proc_O=0.7310  proc_SO=0.7310  ratio=0.5129  det_O=+1
+  L22→L23: raw=1.4556  proc_O=0.7555  proc_SO=0.7555  ratio=0.5190  det_O=-1
+  [baseline] random Gaussian n=30 ...
+  random proc_rel mean=0.7075 p05=0.7065  (4.6s)
+  [baseline] column/entry shuffle on L20→L21 n=30 ...
+  col-shuffle mean=0.7659  entry-shuffle mean=0.7064
+  summary proc_O mean=0.7103  (ex-first-pair=0.7216)  vs random ratio=1.004  fork=NO_STRUCTURE_UNDER_PROBE
+
+=== module=down_proj layers=[19,24) ===
+  loaded model.layers.19.mlp.down_proj.weight (1024, 2816)
+  loaded model.layers.20.mlp.down_proj.weight (1024, 2816)
+  loaded model.layers.21.mlp.down_proj.weight (1024, 2816)
+  loaded model.layers.22.mlp.down_proj.weight (1024, 2816)
+  loaded model.layers.23.mlp.down_proj.weight (1024, 2816)
+  L19→L20: raw=1.4031  proc_O=1.0158  proc_SO=1.0158  ratio=0.7239  det_O=+1
+  L20→L21: raw=1.4085  proc_O=1.0177  proc_SO=1.0177  ratio=0.7225  det_O=-1
+  L21→L22: raw=1.4239  proc_O=1.0262  proc_SO=1.0262  ratio=0.7207  det_O=-1
+  L22→L23: raw=1.4825  proc_O=1.0712  proc_SO=1.0712  ratio=0.7226  det_O=+1
+  [baseline] random Gaussian n=30 ...
+  random proc_rel mean=1.0077 p05=1.0072  (5.4s)
+  [baseline] column/entry shuffle on L20→L21 n=30 ...
+  col-shuffle mean=1.0176  entry-shuffle mean=1.0100
+  summary proc_O mean=1.0327  (ex-first-pair=1.0383)  vs random ratio=1.025  fork=NO_STRUCTURE_UNDER_PROBE
+
+=== cross-module: q_proj_L → tgt_{L+1} ===
+  loaded model.layers.19.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.20.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.21.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.22.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.23.self_attn.q_proj.weight (1024, 1024)
+  loaded model.layers.19.self_attn.v_proj.weight (1024, 1024)
+  loaded model.layers.20.self_attn.v_proj.weight (1024, 1024)
+  loaded model.layers.21.self_attn.v_proj.weight (1024, 1024)
+  loaded model.layers.22.self_attn.v_proj.weight (1024, 1024)
+  loaded model.layers.23.self_attn.v_proj.weight (1024, 1024)
+  q_proj_L → v_proj_{L+1}: proc_O mean=0.8467  raw mean=1.3459  ratio=0.6288
+  loaded model.layers.19.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.20.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.21.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.22.self_attn.k_proj.weight (1024, 1024)
+  loaded model.layers.23.self_attn.k_proj.weight (1024, 1024)
+  q_proj_L → k_proj_{L+1}: proc_O mean=0.8686  raw mean=1.4644  ratio=0.5932
+
+[procrustes] wrote results_procrustes.json
+[procrustes] wrote PROCRUSTES_COMPARE.md
+
+**Fork: NO_STRUCTURE_UNDER_PROBE.** Adjacent-layer Procrustes residual for q/k sits at or above the Gaussian / shuffle null floor (~0.70 for square attn projs; ~1.0 for rectangular down_proj). "Uniformly bad shared-bridge" is **not** hiding an orthogonal map `W_{L+1}≈R W_L` that this full-W probe can see. Redesigning as fixed Ub/Vb + per-layer R is **not** motivated.
+
+- q_proj: proc_O=1.0412 (ex-first=0.7581; random≈0.7075, real/rand=1.472) → `NO_STRUCTURE_UNDER_PROBE`
+- k_proj: proc_O=1.0173 (ex-first=0.7694; random≈0.7075, real/rand=1.438) → `NO_STRUCTURE_UNDER_PROBE`
+- v_proj: proc_O=0.7267 (ex-first=0.6977; random≈0.7074, real/rand=1.027) → `NO_STRUCTURE_UNDER_PROBE`
+- down_proj: proc_O=1.0204 (ex-first=1.0107; random≈1.0077, real/rand=1.013) → `NO_STRUCTURE_UNDER_PROBE`
+- deep L19-23: q_proj=0.7217(rand≈0.7073); k_proj=0.7048(rand≈0.7073); v_proj=0.7103(rand≈0.7075); down_proj=1.0327(rand≈1.0077)
+- cross-module q_L→tgt: same-module q=1.0412; v_proj=2.6129, k_proj=1.0339

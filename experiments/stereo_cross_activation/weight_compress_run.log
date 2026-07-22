@@ -138,3 +138,118 @@
 [heal] trainable params: 69,073,152 (P & geometry frozen as buffers)
 [heal] step 0 (folded, unhealed): val KL=1.9649 agr=0.3000 ppl=280.6
   [heal] step 20 loss=8.1332 trainKL=3.2712 (29s)
+/Users/motonishikoudai/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:422: RuntimeWarning: divide by zero encountered in matmul
+  q1 = ones - P @ (P.T @ ones)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:422: RuntimeWarning: overflow encountered in matmul
+  q1 = ones - P @ (P.T @ ones)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:422: RuntimeWarning: invalid value encountered in matmul
+  q1 = ones - P @ (P.T @ ones)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:426: RuntimeWarning: divide by zero encountered in matmul
+  s = Phat.T @ ones                                  # (257,)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:426: RuntimeWarning: overflow encountered in matmul
+  s = Phat.T @ ones                                  # (257,)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:426: RuntimeWarning: invalid value encountered in matmul
+  s = Phat.T @ ones                                  # (257,)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:427: RuntimeWarning: divide by zero encountered in matmul
+  pbar = (P.T @ ones) / D                            # (256,)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:427: RuntimeWarning: overflow encountered in matmul
+  pbar = (P.T @ ones) / D                            # (256,)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:427: RuntimeWarning: invalid value encountered in matmul
+  pbar = (P.T @ ones) / D                            # (256,)
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:468: RuntimeWarning: divide by zero encountered in matmul
+  d_attn = (b_cp - mean_mid) @ P          # h @ P carried in fwd
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:468: RuntimeWarning: overflow encountered in matmul
+  d_attn = (b_cp - mean_mid) @ P          # h @ P carried in fwd
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:468: RuntimeWarning: invalid value encountered in matmul
+  d_attn = (b_cp - mean_mid) @ P          # h @ P carried in fwd
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:479: RuntimeWarning: divide by zero encountered in matmul
+  tgt.B_attn.copy_(t32(W_cp @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:479: RuntimeWarning: overflow encountered in matmul
+  tgt.B_attn.copy_(t32(W_cp @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:479: RuntimeWarning: invalid value encountered in matmul
+  tgt.B_attn.copy_(t32(W_cp @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:483: RuntimeWarning: divide by zero encountered in matmul
+  tgt.A2.copy_(t32(Phat.T @ (g2[:, None] * W_fc)))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:483: RuntimeWarning: overflow encountered in matmul
+  tgt.A2.copy_(t32(Phat.T @ (g2[:, None] * W_fc)))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:483: RuntimeWarning: invalid value encountered in matmul
+  tgt.A2.copy_(t32(Phat.T @ (g2[:, None] * W_fc)))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:484: RuntimeWarning: divide by zero encountered in matmul
+  tgt.r2.copy_(t32((v2 * g2) @ W_fc))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:484: RuntimeWarning: overflow encountered in matmul
+  tgt.r2.copy_(t32((v2 * g2) @ W_fc))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:484: RuntimeWarning: invalid value encountered in matmul
+  tgt.r2.copy_(t32((v2 * g2) @ W_fc))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:485: RuntimeWarning: divide by zero encountered in matmul
+  tgt.b2.copy_(t32(bln2 @ W_fc + b_fc))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:485: RuntimeWarning: overflow encountered in matmul
+  tgt.b2.copy_(t32(bln2 @ W_fc + b_fc))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:485: RuntimeWarning: invalid value encountered in matmul
+  tgt.b2.copy_(t32(bln2 @ W_fc + b_fc))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:486: RuntimeWarning: divide by zero encountered in matmul
+  tgt.vhat2.copy_(t32(Phat.T @ v2))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:486: RuntimeWarning: overflow encountered in matmul
+  tgt.vhat2.copy_(t32(Phat.T @ v2))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:486: RuntimeWarning: invalid value encountered in matmul
+  tgt.vhat2.copy_(t32(Phat.T @ v2))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:488: RuntimeWarning: divide by zero encountered in matmul
+  tgt.B_mlp.copy_(t32(W_mcp @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:488: RuntimeWarning: overflow encountered in matmul
+  tgt.B_mlp.copy_(t32(W_mcp @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:488: RuntimeWarning: invalid value encountered in matmul
+  tgt.B_mlp.copy_(t32(W_mcp @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:489: RuntimeWarning: divide by zero encountered in matmul
+  tgt.d_mlp.copy_(t32((b_mcp + mean_mid - mean_out) @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:489: RuntimeWarning: overflow encountered in matmul
+  tgt.d_mlp.copy_(t32((b_mcp + mean_mid - mean_out) @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:489: RuntimeWarning: invalid value encountered in matmul
+  tgt.d_mlp.copy_(t32((b_mcp + mean_mid - mean_out) @ P))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:473: RuntimeWarning: divide by zero encountered in matmul
+  tgt.A1.copy_(t32(Phat.T @ (g1[:, None] * W_att)))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:473: RuntimeWarning: overflow encountered in matmul
+  tgt.A1.copy_(t32(Phat.T @ (g1[:, None] * W_att)))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:473: RuntimeWarning: invalid value encountered in matmul
+  tgt.A1.copy_(t32(Phat.T @ (g1[:, None] * W_att)))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:474: RuntimeWarning: divide by zero encountered in matmul
+  tgt.r1.copy_(t32((v1 * g1) @ W_att))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:474: RuntimeWarning: overflow encountered in matmul
+  tgt.r1.copy_(t32((v1 * g1) @ W_att))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:474: RuntimeWarning: invalid value encountered in matmul
+  tgt.r1.copy_(t32((v1 * g1) @ W_att))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:475: RuntimeWarning: divide by zero encountered in matmul
+  tgt.b1.copy_(t32(bln1 @ W_att + b_att))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:475: RuntimeWarning: overflow encountered in matmul
+  tgt.b1.copy_(t32(bln1 @ W_att + b_att))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:475: RuntimeWarning: invalid value encountered in matmul
+  tgt.b1.copy_(t32(bln1 @ W_att + b_att))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:476: RuntimeWarning: divide by zero encountered in matmul
+  tgt.vhat1.copy_(t32(Phat.T @ v1))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:476: RuntimeWarning: overflow encountered in matmul
+  tgt.vhat1.copy_(t32(Phat.T @ v1))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:476: RuntimeWarning: invalid value encountered in matmul
+  tgt.vhat1.copy_(t32(Phat.T @ v1))
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:478: RuntimeWarning: divide by zero encountered in matmul
+  d_attn = (b_cp + mean_in - mean_mid) @ P
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:478: RuntimeWarning: overflow encountered in matmul
+  d_attn = (b_cp + mean_in - mean_mid) @ P
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/weight_compress.py:478: RuntimeWarning: invalid value encountered in matmul
+  d_attn = (b_cp + mean_in - mean_mid) @ P
+[device] mps
+[basis] bases_cache_soft_distill.npz: V (768, 768), P = V[:, :256] (frozen)
+[eval corpus] wikitext-2-raw-v1(test): 40 x 256
+[student] loaded kl_distill_student_r256.pt
+[data] train seqs: 8847 (need 16000; cycles if short)
+[data] val slice: 16 x 256
+[heal] trainable params: 69,073,152 (P & geometry frozen as buffers)
+[heal] step 0 (folded, unhealed): val KL=1.9649 agr=0.3000 ppl=280.6
+  [heal] step 20 loss=8.1332 trainKL=3.2712 (29s)
+  [heal] step 40 loss=7.4151 trainKL=2.6793 (59s)
+  [heal] step 60 loss=6.9252 trainKL=2.2380 (87s)
+  [heal] step 80 loss=6.6454 trainKL=1.9711 (117s)
+  [heal] step 100 loss=6.4909 trainKL=1.8282 (153s)
+[heal] step 100: val KL=1.3074 agr=0.4207 ppl=125.66 acc=0.2184 (155s)
+  [heal] step 120 loss=6.3447 trainKL=1.7411 (197s)
+/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

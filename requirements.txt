@@ -1,0 +1,10 @@
+# Vera — stereo-cross experiment dependencies
+# Python 3.9+ recommended. Apple Silicon: use torch with MPS.
+
+torch>=2.1.0
+numpy>=1.24
+scipy>=1.10
+safetensors>=0.4.0
+transformers>=4.36.0
+datasets>=2.16.0
+tqdm>=4.66.0

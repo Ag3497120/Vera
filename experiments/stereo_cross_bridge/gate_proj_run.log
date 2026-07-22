@@ -1,0 +1,30 @@
+[stereo] model_dir=/Users/motonishikoudai/.cache/huggingface/hub/models--Qwen--Qwen1.5-0.5B-Chat/snapshots/4d14e384a4b037942bb3f3016665157c8bcb70ea module=gate_proj layers=[0,5)
+  loaded model.layers.0.mlp.gate_proj.weight (2816, 1024)
+  loaded model.layers.1.mlp.gate_proj.weight (2816, 1024)
+  loaded model.layers.2.mlp.gate_proj.weight (2816, 1024)
+  loaded model.layers.3.mlp.gate_proj.weight (2816, 1024)
+  loaded model.layers.4.mlp.gate_proj.weight (2816, 1024)
+[stereo] L=5 shape=(2816,1024)
+
+=== rank=32 ===
+  independent SVD rel_fro mean=0.929520 max=0.938323  top32_energy=0.1359
+  shared bridge+C rel_fro mean=0.989096 max=0.996264
+  C offdiag mass mean=0.8803 (0=diagonal-only)
+  params independent_SVD=614,560  shared_bridge=128,000  ratio=0.208
+  verdict=COMPRESS_ONLY  err(bridge)/err(svd)=1.064
+
+=== rank=64 ===
+  independent SVD rel_fro mean=0.888035 max=0.898392  top64_energy=0.2113
+  shared bridge+C rel_fro mean=0.982251 max=0.991661
+  C offdiag mass mean=0.9461 (0=diagonal-only)
+  params independent_SVD=1,229,120  shared_bridge=266,240  ratio=0.217
+  verdict=COMPRESS_ONLY  err(bridge)/err(svd)=1.106
+
+=== rank=128 ===
+  independent SVD rel_fro mean=0.816295 max=0.827144  top128_energy=0.3336
+  shared bridge+C rel_fro mean=0.967606 max=0.977421
+  C offdiag mass mean=0.9907 (0=diagonal-only)
+  params independent_SVD=2,458,240  shared_bridge=573,440  ratio=0.233
+  verdict=COMPRESS_ONLY  err(bridge)/err(svd)=1.185
+
+[stereo] wrote results_gate_proj_L0-4.json

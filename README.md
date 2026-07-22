@@ -352,36 +352,22 @@ Part II で確立した容れ物（r=256 蒸留済み生徒）を使い、構想
 
 ---
 
-## アーカイブ
+## 再現・ソースコード
 
-原本のレポート・生データ・実行ログの写し。実験の実体は `verantyx-cli/experiments/` 配下で実行された。
+**→ 詳細は [`REPRODUCE.md`](./REPRODUCE.md)**（環境構築・全コマンド・チェックポイント再生成）。
 
 ```
-archive/
-├── stereo_cross_bridge/          # Part I: 重み空間（Qwen1.5-0.5B）
-│   ├── SUMMARY.md                # I-1, I-2 初回実験と Hybrid
-│   ├── MODULE_COMPARE.md         # I-3 down/o/q 序列
-│   ├── DEPTH_COMPARE.md          # I-4 深さ交絡
-│   ├── ENTRANCE_COMPARE.md       # I-5 gate/up
-│   ├── ATTN_COMPARE.md           # I-6 v/k RoPE切り分け
-│   ├── PER_HEAD_COMPARE.md       # I-7 ヘッド分解
-│   ├── PROCRUSTES_COMPARE.md     # I-8 回転整合
-│   ├── TRAINED_BRIDGE.md         # I-9 訓練込みブリッジ
-│   └── results_*.json            # 全生データ
-└── stereo_cross_activation/      # Part II & III: 活性空間（GPT-2）
-    ├── ACTIVATION_PROBE.md       # II-1 活性プローブ + GPT-2重み再現
-    ├── MATRYOSHKA.md             # II-2 全層パッチ
-    ├── SOFT_DISTILL.md           # II-3 ソフト射影+LM蒸留
-    ├── KL_DISTILL.md             # II-4 KL蒸留 r=128
-    ├── KL_DISTILL_R256.md        # II-5 r=256 warm-start
-    ├── RESPONSE_MAP.md           # Step 1 反応地図
-    ├── results_*.json            # 全生データ
-    └── *_run.log                 # 実行ログ
+experiments/
+├── stereo_cross_bridge/          # Part I: 重み空間（Qwen1.5-0.5B）— *.py + レポート + results_*.json + logs
+└── stereo_cross_activation/      # Part II–III: 活性空間（GPT-2）— 同上 + 小容量 .npz キャッシュ
 ```
+
+`archive/` は上記の写し（同内容）。巨大な `.pt` 蒸留チェックポイントは GitHub 制限のため未同梱——`REPRODUCE.md` のコマンドで再生成。
 
 ### 実行環境
 
 - ハードウェア: Apple Silicon（MPS）1台
 - モデル: Qwen1.5-0.5B-Chat（Part I）、GPT-2 small 124M（Part II 以降）
 - データ: wikitext-2（校正・訓練・評価とも）
+- 依存: `requirements.txt`
 - 総計算時間: 全シリーズ合算でおよそ半日規模

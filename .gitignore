@@ -1,0 +1,24 @@
+__pycache__/
+*.pyc
+*.pyo
+.Python
+.venv/
+venv/
+.env
+.DS_Store
+
+# Large model checkpoints (regenerate via REPRODUCE.md)
+*.pt
+*.pth
+*.bin
+*.safetensors
+!experiments/**/results*.json
+
+# Smoke / scratch
+*.bak
+smoke_*.npz
+smoke_*.json
+
+# Hugging Face / datasets caches (local only)
+.cache/
+hf_cache/
