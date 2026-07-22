@@ -1,0 +1,245 @@
+[device] mps
+[basis] frozen GPT-2 shared P from bases_cache_soft_distill.npz (V (768, 768); r=256); NOT refit for model B
+/Users/motonishikoudai/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+[eval corpus] wikitext-2-raw-v1(test): 40 x 256
+[model_b] loading teacher distilbert/distilgpt2 ...
+[model_b] n_layer=6 n_embd=768
+[means_b] loaded means_b_distilgpt2.npz mean_ev=0.9277262126361915
+  [means_b] batch 1 sampled=500/50000 0s
+  [means_b] batch 11 sampled=5694/50000 1s
+  [means_b] batch 21 sampled=10916/50000 2s
+  [means_b] batch 31 sampled=16055/50000 3s
+  [means_b] batch 41 sampled=21152/50000 3s
+  [means_b] batch 51 sampled=26169/50000 4s
+  [means_b] batch 61 sampled=31296/50000 5s
+  [means_b] batch 71 sampled=36417/50000 6s
+  [means_b] batch 81 sampled=41594/50000 7s
+  [means_b] batch 91 sampled=46688/50000 8s
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/cross_model_join.py:338: RuntimeWarning: divide by zero encountered in matmul
+  proj = Xc @ P
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/cross_model_join.py:338: RuntimeWarning: overflow encountered in matmul
+  proj = Xc @ P
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/cross_model_join.py:338: RuntimeWarning: invalid value encountered in matmul
+  proj = Xc @ P
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/cross_model_join.py:339: RuntimeWarning: divide by zero encountered in matmul
+  recon = proj @ P.T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/cross_model_join.py:339: RuntimeWarning: overflow encountered in matmul
+  recon = proj @ P.T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/cross_model_join.py:339: RuntimeWarning: invalid value encountered in matmul
+  recon = proj @ P.T
+[means_b] done (9s); mean explained-var by GPT-2 P: 0.9277
+[distill_b] step-0 (cold + hard P) ...
+[distill_b] STEP-0 TEST: KL=1.8539 agr=0.2896 ppl=425.30
+[data] train seqs=8847 val=16
+[distill_b] step 0: val KL=1.7967 agr=0.3103 ppl=342.6
+`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+  [distill_b] step 20 loss=6.5557 trainKL=1.8539 (21s)
+  [distill_b] step 40 loss=6.1291 trainKL=1.5146 (44s)
+  [distill_b] step 60 loss=5.9274 trainKL=1.3317 (66s)
+  [distill_b] step 80 loss=5.8119 trainKL=1.2061 (90s)
+  [distill_b] step 100 loss=5.7814 trainKL=1.1770 (114s)
+[distill_b] step 100: val KL=0.9977 agr=0.4646 ppl=138.83 acc=0.2074 (115s)
+  [distill_b] step 120 loss=5.6935 trainKL=1.1481 (138s)
+  [distill_b] step 140 loss=5.6931 trainKL=1.1215 (163s)
+  [distill_b] step 160 loss=5.6314 trainKL=1.0759 (190s)
+  [distill_b] step 180 loss=5.6253 trainKL=1.0636 (219s)
+  [distill_b] step 200 loss=5.6314 trainKL=1.0296 (248s)
+[distill_b] step 200: val KL=0.8949 agr=0.4973 ppl=121.45 acc=0.2199 (249s)
+  [distill_b] step 220 loss=5.5730 trainKL=1.0131 (280s)
+  [distill_b] step 240 loss=5.5352 trainKL=1.0017 (309s)
+  [distill_b] step 260 loss=5.5432 trainKL=0.9973 (339s)
+  [distill_b] step 280 loss=5.5589 trainKL=0.9921 (369s)
+  [distill_b] step 300 loss=5.5412 trainKL=0.9817 (399s)
+[distill_b] step 300: val KL=0.8403 agr=0.5100 ppl=115.28 acc=0.2230 (401s)
+  [distill_b] step 320 loss=5.5126 trainKL=0.9781 (432s)
+  [distill_b] step 340 loss=5.5125 trainKL=0.9729 (463s)
+  [distill_b] step 360 loss=5.4550 trainKL=0.9542 (496s)
+  [distill_b] step 380 loss=5.4800 trainKL=0.9333 (529s)
+  [distill_b] step 400 loss=5.5128 trainKL=0.9457 (563s)
+[distill_b] step 400: val KL=0.7904 agr=0.5198 ppl=109.15 acc=0.2294 (565s)
+  [distill_b] step 420 loss=5.4557 trainKL=0.9088 (598s)
+  [distill_b] step 440 loss=5.4793 trainKL=0.9189 (631s)
+  [distill_b] step 460 loss=5.4376 trainKL=0.9070 (664s)
+  [distill_b] step 480 loss=5.4476 trainKL=0.8898 (698s)
+  [distill_b] step 500 loss=5.4240 trainKL=0.8964 (732s)
+[distill_b] step 500: val KL=0.7541 agr=0.5337 ppl=104.38 acc=0.2368 (734s)
+  [distill_b] step 520 loss=5.4355 trainKL=0.8941 (768s)
+  [distill_b] step 540 loss=5.3959 trainKL=0.8738 (805s)
+  [distill_b] step 560 loss=5.4218 trainKL=0.8582 (840s)
+  [distill_b] step 580 loss=5.5394 trainKL=0.9958 (876s)
+  [distill_b] step 600 loss=5.4294 trainKL=0.8557 (912s)
+[distill_b] step 600: val KL=0.7252 agr=0.5447 ppl=100.62 acc=0.2400 (914s)
+  [distill_b] step 620 loss=5.3710 trainKL=0.8482 (950s)
+  [distill_b] step 640 loss=5.3781 trainKL=0.8481 (985s)
+  [distill_b] step 660 loss=5.4127 trainKL=0.8514 (1021s)
+  [distill_b] step 680 loss=5.3967 trainKL=0.8559 (1059s)
+  [distill_b] step 700 loss=5.3213 trainKL=0.8311 (1097s)
+[distill_b] step 700: val KL=0.7070 agr=0.5476 ppl=97.87 acc=0.2400 (1099s)
+  [distill_b] step 720 loss=5.3665 trainKL=0.8283 (1137s)
+  [distill_b] step 740 loss=5.3762 trainKL=0.8260 (1176s)
+  [distill_b] step 760 loss=5.3580 trainKL=0.8180 (1214s)
+  [distill_b] step 780 loss=5.3330 trainKL=0.8184 (1253s)
+  [distill_b] step 800 loss=5.3502 trainKL=0.8210 (1292s)
+[distill_b] step 800: val KL=0.6881 agr=0.5520 ppl=98.15 acc=0.2370 (1294s)
+  [distill_b] step 820 loss=5.3627 trainKL=0.8193 (1333s)
+  [distill_b] step 840 loss=5.3325 trainKL=0.8072 (1372s)
+  [distill_b] step 860 loss=5.3323 trainKL=0.8041 (1410s)
+  [distill_b] step 880 loss=5.3717 trainKL=0.7881 (1450s)
+  [distill_b] step 900 loss=5.3076 trainKL=0.7824 (1488s)
+[distill_b] step 900: val KL=0.6739 agr=0.5601 ppl=96.41 acc=0.2397 (1490s)
+  [distill_b] step 920 loss=5.2999 trainKL=0.7830 (1528s)
+  [distill_b] step 940 loss=5.3115 trainKL=0.7825 (1567s)
+  [distill_b] step 960 loss=5.3276 trainKL=0.7960 (1607s)
+  [distill_b] step 980 loss=5.3240 trainKL=0.7836 (1647s)
+  [distill_b] step 1000 loss=5.2884 trainKL=0.7708 (1686s)
+[distill_b] step 1000: val KL=0.6621 agr=0.5608 ppl=93.84 acc=0.2453 (1688s)
+  [distill_b] step 1020 loss=5.3175 trainKL=0.7609 (1727s)
+  [distill_b] step 1040 loss=5.3420 trainKL=0.7814 (1767s)
+  [distill_b] step 1060 loss=5.3121 trainKL=0.7696 (1807s)
+  [distill_b] step 1080 loss=5.2985 trainKL=0.7697 (1848s)
+  [distill_b] step 1100 loss=5.3201 trainKL=0.7666 (1888s)
+[distill_b] step 1100: val KL=0.6506 agr=0.5647 ppl=93.41 acc=0.2463 (1889s)
+  [distill_b] step 1120 loss=5.3283 trainKL=0.7465 (1928s)
+  [distill_b] step 1140 loss=5.2516 trainKL=0.7237 (1968s)
+  [distill_b] step 1160 loss=5.2593 trainKL=0.7252 (2006s)
+  [distill_b] step 1180 loss=5.3149 trainKL=0.7228 (2046s)
+  [distill_b] step 1200 loss=5.2545 trainKL=0.7357 (2085s)
+[distill_b] step 1200: val KL=0.6367 agr=0.5725 ppl=92.89 acc=0.2429 (2087s)
+  [distill_b] step 1220 loss=5.2607 trainKL=0.7252 (2127s)
+  [distill_b] step 1240 loss=5.2411 trainKL=0.7154 (2169s)
+  [distill_b] step 1260 loss=5.2736 trainKL=0.7287 (2209s)
+  [distill_b] step 1280 loss=5.2537 trainKL=0.7176 (2249s)
+  [distill_b] step 1300 loss=5.2214 trainKL=0.7148 (2290s)
+[distill_b] step 1300: val KL=0.6282 agr=0.5696 ppl=90.84 acc=0.2466 (2292s)
+  [distill_b] step 1320 loss=5.2303 trainKL=0.7179 (2333s)
+  [distill_b] step 1340 loss=5.2232 trainKL=0.6992 (2375s)
+  [distill_b] step 1360 loss=5.2024 trainKL=0.6956 (2417s)
+  [distill_b] step 1380 loss=5.2514 trainKL=0.7005 (2458s)
+  [distill_b] step 1400 loss=5.2839 trainKL=0.7009 (2499s)
+[distill_b] step 1400: val KL=0.6187 agr=0.5754 ppl=90.00 acc=0.2446 (2501s)
+  [distill_b] step 1420 loss=5.1967 trainKL=0.7023 (2543s)
+  [distill_b] step 1440 loss=5.2776 trainKL=0.7045 (2586s)
+  [distill_b] step 1460 loss=5.2159 trainKL=0.7017 (2628s)
+  [distill_b] step 1480 loss=5.2337 trainKL=0.6998 (2671s)
+  [distill_b] step 1500 loss=5.2061 trainKL=0.6956 (2713s)
+[distill_b] step 1500: val KL=0.6092 agr=0.5876 ppl=88.96 acc=0.2539 (2715s)
+  [distill_b] step 1520 loss=5.2011 trainKL=0.6995 (2758s)
+  [distill_b] step 1540 loss=5.1846 trainKL=0.6957 (2800s)
+  [distill_b] step 1560 loss=5.2603 trainKL=0.6838 (2841s)
+  [distill_b] step 1580 loss=5.2016 trainKL=0.6805 (2882s)
+  [distill_b] step 1600 loss=5.2356 trainKL=0.6818 (2925s)
+[distill_b] step 1600: val KL=0.6012 agr=0.5862 ppl=88.68 acc=0.2493 (2927s)
+  [distill_b] step 1620 loss=5.2031 trainKL=0.6962 (2968s)
+  [distill_b] step 1640 loss=5.2031 trainKL=0.6838 (3010s)
+  [distill_b] step 1660 loss=5.1872 trainKL=0.6818 (3051s)
+  [distill_b] step 1680 loss=5.2485 trainKL=0.6897 (3091s)
+  [distill_b] step 1700 loss=5.1784 trainKL=0.6740 (3131s)
+[distill_b] step 1700: val KL=0.5964 agr=0.5884 ppl=88.03 acc=0.2554 (3132s)
+  [distill_b] step 1720 loss=5.2004 trainKL=0.6780 (3174s)
+  [distill_b] step 1740 loss=5.1844 trainKL=0.6769 (3216s)
+  [distill_b] step 1760 loss=5.1536 trainKL=0.6744 (3259s)
+  [distill_b] step 1780 loss=5.1798 trainKL=0.6798 (3301s)
+  [distill_b] step 1800 loss=5.1972 trainKL=0.6793 (3343s)
+[distill_b] step 1800: val KL=0.5890 agr=0.5911 ppl=87.07 acc=0.2539 (3345s)
+  [distill_b] step 1820 loss=5.1794 trainKL=0.6757 (3388s)
+  [distill_b] step 1840 loss=5.1789 trainKL=0.6662 (3433s)
+  [distill_b] step 1860 loss=5.1697 trainKL=0.6625 (3475s)
+  [distill_b] step 1880 loss=5.1888 trainKL=0.6668 (3517s)
+  [distill_b] step 1900 loss=5.1701 trainKL=0.6577 (3561s)
+[distill_b] step 1900: val KL=0.5800 agr=0.5898 ppl=86.18 acc=0.2551 (3562s)
+  [distill_b] step 1920 loss=5.2071 trainKL=0.6664 (3606s)
+  [distill_b] step 1940 loss=5.1423 trainKL=0.6583 (3649s)
+  [distill_b] step 1960 loss=5.2134 trainKL=0.6626 (3693s)
+  [distill_b] step 1980 loss=5.1768 trainKL=0.6537 (3735s)
+  [distill_b] step 2000 loss=5.1858 trainKL=0.6566 (3778s)
+[distill_b] step 2000: val KL=0.5704 agr=0.5938 ppl=86.23 acc=0.2495 (3780s)
+[distill_b] TEST: KL=0.5578 agr=0.5977 ppl=95.08
+[distill_b] saved student_b_distilgpt2.pt
+[student_a] loading matryoshka_student.pt ...
+[student_a] missing=[] unexpected=[]
+[solo] evaluating A vs teacher A ...
+[solo A] KL=0.6753 agr=0.5684 ppl=77.03
+[solo] evaluating B vs teacher B ...
+[solo B] KL=0.5578 agr=0.5977 ppl=95.08
+[join] capturing donor coords + evaluating joins ...
+  [capture] A layer 2 ...
+  [capture] B layer 1 ...
+  [capture] A layer 5 ...
+  [capture] B layer 2 ...
+  [capture] A layer 10 ...
+  [capture] B layer 4 ...
+  [A_to_B] early L_inj=1 real_all256 ...
+    ppl=108.38 agr=0.5502 KL=0.7029
+  [A_to_B] early L_inj=1 real_hub16 ...
+    ppl=99.47 agr=0.5771 KL=0.6152
+  [A_to_B] early L_inj=1 real_hub32 ...
+    ppl=100.84 agr=0.5680 KL=0.6307
+  [A_to_B] early random ...
+    ppl=12238.37 agr=0.0323
+  [A_to_B] early shuffle_self ...
+    ppl=24963.83 agr=0.1420
+  [A_to_B] early identity_self ...
+    ppl=95.08 agr=0.5977
+  [A_to_B] mid L_inj=2 real_all256 ...
+    ppl=101.43 agr=0.5546 KL=0.6950
+  [A_to_B] mid L_inj=2 real_hub16 ...
+    ppl=97.61 agr=0.5770 KL=0.6081
+  [A_to_B] mid L_inj=2 real_hub32 ...
+    ppl=97.50 agr=0.5659 KL=0.6334
+  [A_to_B] mid random ...
+    ppl=8633.28 agr=0.0332
+  [A_to_B] mid shuffle_self ...
+    ppl=9910.19 agr=0.2115
+  [A_to_B] mid identity_self ...
+    ppl=95.08 agr=0.5977
+  [A_to_B] late L_inj=4 real_all256 ...
+    ppl=95.92 agr=0.5563 KL=0.6886
+  [A_to_B] late L_inj=4 real_hub16 ...
+    ppl=99.78 agr=0.5704 KL=0.6213
+  [A_to_B] late L_inj=4 real_hub32 ...
+    ppl=96.88 agr=0.5675 KL=0.6284
+  [A_to_B] late random ...
+    ppl=5651.81 agr=0.0457
+  [A_to_B] late shuffle_self ...
+    ppl=16831.49 agr=0.1735
+  [A_to_B] late identity_self ...
+    ppl=95.08 agr=0.5977
+  [B_to_A] early L_inj=2 real_all256 ...
+    ppl=82.73 agr=0.5481 KL=0.7238
+  [B_to_A] early L_inj=2 real_hub16 ...
+    ppl=80.90 agr=0.5572 KL=0.7012
+  [B_to_A] early L_inj=2 real_hub32 ...
+    ppl=81.97 agr=0.5514 KL=0.7062
+  [B_to_A] early random ...
+    ppl=6166.95 agr=0.0621
+  [B_to_A] early shuffle_self ...
+    ppl=33630.92 agr=0.0941
+  [B_to_A] early identity_self ...
+    ppl=77.03 agr=0.5684
+  [B_to_A] mid L_inj=5 real_all256 ...
+    ppl=93.15 agr=0.5181 KL=0.8043
+  [B_to_A] mid L_inj=5 real_hub16 ...
+    ppl=80.97 agr=0.5564 KL=0.7007
+  [B_to_A] mid L_inj=5 real_hub32 ...
+    ppl=84.08 agr=0.5503 KL=0.7122
+  [B_to_A] mid random ...
+    ppl=6176.69 agr=0.0480
+  [B_to_A] mid shuffle_self ...
+    ppl=16327.41 agr=0.1421
+  [B_to_A] mid identity_self ...
+    ppl=77.03 agr=0.5684
+  [B_to_A] late L_inj=10 real_all256 ...
+    ppl=106.26 agr=0.4674 KL=0.9731
+  [B_to_A] late L_inj=10 real_hub16 ...
+    ppl=80.20 agr=0.5518 KL=0.7245
+  [B_to_A] late L_inj=10 real_hub32 ...
+    ppl=84.33 agr=0.5412 KL=0.7496
+  [B_to_A] late random ...
+    ppl=3457.05 agr=0.0823
+  [B_to_A] late shuffle_self ...
+    ppl=12341.87 agr=0.1749
+  [B_to_A] late identity_self ...
+    ppl=77.03 agr=0.5684
+[verdict] JOIN_VIABLE
+[done] wrote /Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/results_cross_model_join.json wall=4057s

@@ -1,0 +1,33 @@
+[device] mps
+[basis] frozen GPT-2 shared P from bases_cache_soft_distill.npz (V (768, 768); r=256); NOT refit for model B
+/Users/motonishikoudai/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+[eval corpus] wikitext-2-raw-v1(test): 40 x 256
+[model_b] loading teacher distilbert/distilgpt2 ...
+[model_b] n_layer=6 n_embd=768
+[means_b] fitting DistilGPT2 means on 390 seqs ...
+  [means_b] batch 1 sampled=500/50000 0s
+  [means_b] batch 11 sampled=5694/50000 1s
+  [means_b] batch 21 sampled=10916/50000 2s
+  [means_b] batch 31 sampled=16055/50000 3s
+  [means_b] batch 41 sampled=21152/50000 3s
+  [means_b] batch 51 sampled=26169/50000 4s
+  [means_b] batch 61 sampled=31296/50000 5s
+  [means_b] batch 71 sampled=36417/50000 6s
+  [means_b] batch 81 sampled=41594/50000 7s
+  [means_b] batch 91 sampled=46688/50000 8s
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/cross_model_join.py:338: RuntimeWarning: divide by zero encountered in matmul
+  proj = Xc @ P
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/cross_model_join.py:338: RuntimeWarning: overflow encountered in matmul
+  proj = Xc @ P
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/cross_model_join.py:338: RuntimeWarning: invalid value encountered in matmul
+  proj = Xc @ P
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/cross_model_join.py:339: RuntimeWarning: divide by zero encountered in matmul
+  recon = proj @ P.T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/cross_model_join.py:339: RuntimeWarning: overflow encountered in matmul
+  recon = proj @ P.T
+/Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/cross_model_join.py:339: RuntimeWarning: invalid value encountered in matmul
+  recon = proj @ P.T
+[means_b] done (9s); mean explained-var by GPT-2 P: 0.9277
+[means_b] saved means_b_distilgpt2.npz
+[probe_p] wrote /Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/results_cross_model_join.json
