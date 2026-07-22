@@ -282,7 +282,7 @@ Part II で確立した容れ物（r=256 蒸留済み生徒）を使い、構想
 | **4** | 重み圧縮の実測（実効 256×256 化） | ✅ 完了 | **COMPRESSION_REAL** |
 | **3** | Matryoshka 蒸留（全粒度同時監督） | ✅ 完了 | **MATRYOSHKA_VIABLE** |
 | **5** | 異モデル接合（パズルのモデル間展開） | ✅ 完了 | **JOIN_VIABLE** |
-| **2** | 状態圧縮のメモリ/グラフ実装 | ⏳ 実装作業（研究リスク低） | — |
+| **2** | 状態圧縮のメモリ/グラフ実装 | ✅ 完了 | **MEMORY_VIABLE** |
 
 ### Step 1: 反応地図 ✅（2026-07-22 完了）
 
@@ -363,9 +363,25 @@ Part II で確立した容れ物（r=256 蒸留済み生徒）を使い、構想
 
 詳細: `experiments/stereo_cross_activation/CROSS_MODEL_JOIN.md`
 
-### Step 2: 状態圧縮の実装 ⏳
+### Step 2: 状態圧縮のメモリ sidecar ✅（2026-07-23 完了）
 
-研究リスクは低い（256次元で後続計算の復元性は II-5 で実証済み）。Verantyx のメモリ/グラフ sidecar に「モデル内部状態の保存・検索・再注入」として実装する。
+**事前登録フォーク**: 検索が chance を明確に上回り、かつ実メモリ再注入が random-メモリ対照を行動指標で上回れば **MEMORY_VIABLE**。検索のみなら MEMORY_STORE_ONLY。検索が chance 並みなら MEMORY_FAIL。
+
+**結果: MEMORY_VIABLE。** 訓練ゼロ・~45秒（MPS）。Matryoshka 生徒の L5/L11 最終トークン座標を JSONL+npz ストアに保存し、cosine NN 検索＋再注入を評価。
+
+| 指標 | 結果 |
+|------|------|
+| 検索 L11 recall@1 / @5 | **0.188 / 0.487**（chance@1≈0.01 の ~19× / ~10×） |
+| 再注入（oracle L11）答トークン logp gap vs random | **+1.63**（win 0.75） |
+| 再注入（retrieved L11）gap vs random | **+0.87**（win 0.60） |
+| ストア | 80 factoid + 20 wiki、~173 KB |
+
+要点:
+- 共有 r=256 座標は**検索可能かつ因果的に使える**メモリ番地になる
+- 後期層（L11）がキーとして強い。hub16 のみでは検索が崩壊（識別情報はテール次元側）
+- random 格納座標も分布を動かすが、マッチしたメモリだけが答トークンを方向的に押し上げる
+
+詳細: `experiments/stereo_cross_activation/COORD_MEMORY.md`
 
 ---
 
@@ -384,6 +400,7 @@ Part II で確立した容れ物（r=256 蒸留済み生徒）を使い、構想
 7. **立体十字容れ物は重み圧縮フォーマットとして成立**——ブロック 2.85×・治癒後 ppl 1.63×（Step 4 COMPRESSION_REAL）
 8. **Matryoshka 蒸留で一生徒・全粒度が成立**——同一 ckpt が r=8…256 で単調劣化、r=128/192/256 で専用・入れ子対照を上回る（Step 3 MATRYOSHKA_VIABLE）
 9. **異モデル接合が成立**——DistilGPT2 を同一 P に蒸留し、中層座標スワップが random/shuffle を桁違いに上回る（Step 5 JOIN_VIABLE）
+10. **座標メモリ sidecar が成立**——保存・cosine 検索・再注入が訓練なしで動く。L11 recall@1≈19×chance、実メモリ再注入が random 対照を答トークン logp で上回る（Step 2 MEMORY_VIABLE）
 
 ### 構想への現時点の答え
 

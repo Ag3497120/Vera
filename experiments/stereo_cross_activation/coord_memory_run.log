@@ -1,0 +1,33 @@
+[device] mps
+/Users/motonishikoudai/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+[student] matryoshka_student.pt
+[ingest] 20 ...
+[ingest] 40 ...
+[ingest] 60 ...
+[ingest] 80 ...
+[ingest] 100 ...
+[ingest] wrote 100 records to /Users/motonishikoudai/Projects/verantyx-cli/experiments/stereo_cross_activation/memory_store/memories.jsonl (2.2s)
+[retrieval] evaluating labeled recall ...
+[retrieval] L5 recall@1=0.037 @5=0.312 mean_rank=15.1 (chance@1=0.010)
+[retrieval] L11 recall@1=0.188 @5=0.487 mean_rank=13.9 (chance@1=0.010)
+[retrieval] L5 recall@1=0.000 @5=0.000 mean_rank=44.4 (chance@1=0.010)
+[retrieval] L11 recall@1=0.000 @5=0.025 mean_rank=38.9 (chance@1=0.010)
+[reinject] evaluating real vs random memory ...
+[reinject] config=retrieved_full_replace_last
+[reinject/retrieved] L5 n=80 retrieve@1=0.037 Δans real=+2.219 rand=+1.733 gap=+0.487 win=0.59 beats_rand=True
+[reinject/retrieved] L11 n=80 retrieve@1=0.188 Δans real=+2.006 rand=+1.141 gap=+0.865 win=0.60 beats_rand=True
+[reinject] config=retrieved_blend05_last
+[reinject/retrieved] L5 n=80 retrieve@1=0.037 Δans real=+1.850 rand=+1.835 gap=+0.014 win=0.47 beats_rand=False
+[reinject/retrieved] L11 n=80 retrieve@1=0.188 Δans real=+2.287 rand=+1.848 gap=+0.439 win=0.57 beats_rand=True
+[reinject] config=retrieved_hub16_replace_last
+[reinject/retrieved] L5 n=80 retrieve@1=0.037 Δans real=+1.743 rand=+1.728 gap=+0.015 win=0.45 beats_rand=False
+[reinject/retrieved] L11 n=80 retrieve@1=0.188 Δans real=+1.253 rand=+1.020 gap=+0.233 win=0.60 beats_rand=True
+[reinject] config=oracle_full_replace_last
+[reinject/oracle] L5 n=80 retrieve@1=1.000 Δans real=+2.287 rand=+1.733 gap=+0.554 win=0.61 beats_rand=True
+[reinject/oracle] L11 n=80 retrieve@1=1.000 Δans real=+2.773 rand=+1.141 gap=+1.632 win=0.75 beats_rand=True
+[reinject] config=oracle_hub16_replace_last
+[reinject/oracle] L5 n=80 retrieve@1=1.000 Δans real=+1.853 rand=+1.728 gap=+0.125 win=0.57 beats_rand=True
+[reinject/oracle] L11 n=80 retrieve@1=1.000 Δans real=+1.252 rand=+1.020 gap=+0.232 win=0.55 beats_rand=True
+[verdict] MEMORY_VIABLE: retrieval above chance AND real memory reinject beats random-memory control (retrieved_full_replace_last/L5, retrieved_full_replace_last/L11, retrieved_blend05_last/L11, retrieved_hub16_replace_last/L11, oracle_full_replace_last/L5, oracle_full_replace_last/L5, oracle_full_replace_last/L11, oracle_full_replace_last/L11, oracle_hub16_replace_last/L5, oracle_hub16_replace_last/L5, oracle_hub16_replace_last/L11, oracle_hub16_replace_last/L11)
+[wall] 44.9s  wrote results_coord_memory.json
