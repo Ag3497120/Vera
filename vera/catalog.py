@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 EXP = ROOT / "experiments" / "stereo_cross_activation"
 BUNDLES = ROOT / "bundles"
 HF_GPT2_DEFAULT = os.environ.get("VERA_HF_GPT2", "Ag3497120/vera-gpt2-matryoshka")
+HF_JOIN_DEFAULT = os.environ.get("VERA_HF_JOIN", "Ag3497120/vera-distilgpt2-join")
 
 
 @dataclass
@@ -155,13 +156,35 @@ def list_artifacts() -> List[ModelEntry]:
 def list_huggingface_presets() -> List[ModelEntry]:
     return [
         ModelEntry(
+            id="hf-suite:gpt2",
+            backend="huggingface",
+            name="GPT-2 Vera suite (2 downloads)",
+            detail=f"{HF_GPT2_DEFAULT} + {HF_JOIN_DEFAULT}",
+            convertible=True,
+            runnable_vera=True,
+            notes=(
+                "Selecting this downloads BOTH Hub repos: Matryoshka GPT-2 "
+                "container + DistilGPT2 join partner. "
+                "python -m vera download-gpt2-suite"
+            ),
+        ),
+        ModelEntry(
             id=f"hf:{HF_GPT2_DEFAULT}",
             backend="huggingface",
             name="Vera GPT-2 Matryoshka (Hub)",
             detail=HF_GPT2_DEFAULT,
             convertible=False,
             runnable_vera=True,
-            notes="Downloads published bundle when selected. Publish via: python -m vera publish",
+            notes="Primary container only.",
+        ),
+        ModelEntry(
+            id=f"hf:{HF_JOIN_DEFAULT}",
+            backend="huggingface",
+            name="Vera DistilGPT2 Join (Hub)",
+            detail=HF_JOIN_DEFAULT,
+            convertible=False,
+            runnable_vera=True,
+            notes="Join partner; shares P with Matryoshka GPT-2.",
         ),
         ModelEntry(
             id="hf:openai-community/gpt2",
@@ -170,7 +193,7 @@ def list_huggingface_presets() -> List[ModelEntry]:
             detail="openai-community/gpt2",
             convertible=True,
             runnable_vera=False,
-            notes="Vanilla weights — convert to create a Vera student (needs distill compute).",
+            notes="Vanilla — use suite package/download for Vera weights.",
         ),
     ]
 

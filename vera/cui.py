@@ -38,13 +38,13 @@ def menu():
         """
 ╔══════════════════════════════════════════════════════════╗
 ║  VERA — stereo-cross workspace (interactive)            ║
-║  Weights are trained; P/means applied by runtime hooks  ║
+║  GPT-2 suite = 2 Hub downloads (Matryoshka + Join)      ║
 ╚══════════════════════════════════════════════════════════╝
   1) List models (Ollama / bundles / artifacts / HF)
-  2) Convert / package into Vera bundle
+  2) Convert / package / download GPT-2 suite
   3) Chat (Vera brain + memory; optional Ollama mouth)
   4) Verify (smoke) — optionally offer benches
-  5) Publish bundle to Hugging Face
+  5) Publish to Hugging Face (gpt2-suite = 2 repos)
   6) Explain: weights vs hooks
   0) Quit
 """
@@ -59,21 +59,35 @@ WHAT CHANGED IN THE RESEARCH ARTIFACTS
 1) WEIGHTS CHANGED (trained)
    matryoshka_student.pt / kl_distill_*.pt / student_b_*.pt
    / weight_compress_healed.pt are fine-tuned or re-parameterized.
-   They are NOT stock GPT-2.
 
 2) GEOMETRY IS RUNTIME (hooks)
-   Shared basis P and per-layer means are FROZEN. Each block output is
-   projected every forward pass (or folded into matrices in Step-4 compress).
+   Shared basis P and per-layer means are FROZEN; applied every forward.
 
-3) JOIN / MEMORY REINJECT
-   Purely programmatic coord capture/inject — no extra training required
-   at use time.
+3) JOIN / MEMORY REINJECT — runtime coord capture/inject only.
 
-So: conversion scripts package (1)+(2). Distilling a NEW model updates
-weights under the hook constraint; packaging alone only wraps an existing
-student.
+GPT-2 Hub suite (2 repos):
+  Ag3497120/vera-gpt2-matryoshka      — primary container
+  Ag3497120/vera-distilgpt2-join      — join partner (same P)
 """
     )
+
+
+def _gpt2_suite_actions(default: str = "package-local"):
+    from . import gpt2_suite
+
+    mode = _ask(
+        "GPT-2 suite (2 repos). download-from-hub / package-local / publish-to-hub",
+        default,
+    )
+    if mode.startswith("download"):
+        gpt2_suite.download_gpt2_suite()
+    elif mode.startswith("publish"):
+        gpt2_suite.publish_gpt2_suite(
+            private=_ask("Private? y/N", "N").lower() == "y"
+        )
+    else:
+        a, b = gpt2_suite.package_gpt2_suite()
+        print(f"Packaged with HF model-card READMEs:\n  {a}\n  {b}")
 
 
 def do_convert():
@@ -87,28 +101,35 @@ def do_convert():
     if not e:
         return
     print(f"\nSelected: {e.id}\n{e.notes}")
+
+    if (
+        e.id == "hf-suite:gpt2"
+        or "Vera suite" in e.name
+        or e.detail == "openai-community/gpt2"
+        or e.id.endswith("openai-community/gpt2")
+        or "vera-gpt2-matryoshka" in (e.detail or "")
+        or "vera-distilgpt2-join" in (e.detail or "")
+    ):
+        _gpt2_suite_actions(
+            "download-from-hub"
+            if (
+                e.backend == "huggingface"
+                and (
+                    e.id == "hf-suite:gpt2"
+                    or "suite" in e.id
+                    or "vera-gpt2" in (e.detail or "")
+                    or "vera-distilgpt2" in (e.detail or "")
+                )
+            )
+            else "package-local"
+        )
+        return
+
     if e.backend == "artifact":
         path = convert.package_artifact(e.id)
         print(f"Packaged → {path}")
         return
-    if "Vera GPT-2" in e.name or e.detail.endswith("vera-gpt2-matryoshka"):
-        path = convert.package_gpt2_matryoshka()
-        print(f"Packaged local proven student → {path}")
-        print("Publish (menu 5) so others can hf-download it.")
-        return
-    if e.detail == "openai-community/gpt2" or e.id.endswith("openai-community/gpt2"):
-        mode = _ask(
-            "Mode: package-existing-student / smoke-stock-gpt2",
-            "package-existing-student",
-        )
-        if mode.startswith("package"):
-            path = convert.package_gpt2_matryoshka()
-            print(f"Packaged proven Matryoshka student → {path}")
-        else:
-            name = _ask("Bundle name", "gpt2-stock-smoke")
-            path = convert.smoke_basis_for_hf("openai-community/gpt2", name)
-            print(f"Smoke bundle → {path} (quality poor until distilled)")
-        return
+
     if e.backend == "ollama":
         try:
             hf = convert.resolve_hf_id(e.id)
@@ -123,24 +144,20 @@ def do_convert():
         choice = _ask("Choice a/b", "b")
         if choice.lower().startswith("a"):
             if "9b" in e.name.lower() or "27" in e.name.lower():
-                ok = _ask(
-                    "WARNING: 9B+ needs serious GPU. Continue? y/N", "N"
-                )
-                if ok.lower() != "y":
+                if _ask("WARNING: 9B+ needs GPU. Continue? y/N", "N").lower() != "y":
                     return
             name = _ask("Bundle name", e.name.replace(":", "-").replace("/", "-"))
             try:
-                path = convert.smoke_basis_for_hf(hf, name)
-                print(f"Smoke bundle → {path}")
+                print(f"Smoke bundle → {convert.smoke_basis_for_hf(hf, name)}")
             except Exception as ex:
                 print(f"Failed: {ex}")
         else:
             print("Use menu 3 chat with mouth=ollama:" + e.name)
         return
+
     hf = e.detail if e.backend == "huggingface" else _ask("HF id")
-    name = _ask("Bundle name", hf.replace("/", "-"))
-    path = convert.smoke_basis_for_hf(hf, name)
-    print(f"Smoke bundle → {path}")
+    name = _ask("Bundle name", str(hf).replace("/", "-"))
+    print(f"Smoke bundle → {convert.smoke_basis_for_hf(hf, name)}")
 
 
 def do_chat():
@@ -149,18 +166,28 @@ def do_chat():
     e = _pick(entries)
     if not e:
         if catalog.find_file("matryoshka_student.pt", "kl_distill_student_r256.pt"):
-            if _ask("No bundle yet. Package GPT-2 Matryoshka now? y/N", "y").lower() == "y":
-                convert.package_gpt2_matryoshka()
-                bundles = catalog.list_bundles()
-                e = bundles[0] if bundles else None
+            if _ask("Package GPT-2 suite now? y/N", "y").lower() == "y":
+                from . import gpt2_suite
+
+                gpt2_suite.package_gpt2_suite()
+                e = next(
+                    (x for x in catalog.list_bundles() if "gpt2-matryoshka" in x.name),
+                    None,
+                )
             else:
                 return
         else:
-            print("No runnable Vera model. Convert/package first, or set VERA_ARTIFACTS.")
+            print("No runnable model. download-gpt2-suite or set VERA_ARTIFACTS.")
             return
     if not e:
         return
-    spec = e.id
+    if e.id == "hf-suite:gpt2":
+        from . import gpt2_suite
+
+        gpt2_suite.download_gpt2_suite()
+        spec = "bundle:gpt2-matryoshka"
+    else:
+        spec = e.id
     rank = int(_ask("Matryoshka rank", "256"))
     mouth = _ask("Mouth: vera | ollama:<name>", "vera")
     run_chat(spec, rank=rank, mouth=mouth)
@@ -176,39 +203,65 @@ def do_verify():
     e = _pick(uniq)
     if not e:
         return
+    spec = "bundle:gpt2-matryoshka" if e.id == "hf-suite:gpt2" else e.id
+    if e.id == "hf-suite:gpt2":
+        from . import gpt2_suite
+
+        gpt2_suite.download_gpt2_suite()
     rank = int(_ask("Rank", "256"))
-    res = quick_verify(e.id, rank=rank)
+    res = quick_verify(spec, rank=rank)
     print_verify(res)
     out = catalog.ROOT / "bundles" / "_last_verify.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(__import__("json").dumps(res, indent=2), encoding="utf-8")
     print(f"Wrote {out}")
-    ans = _ask("Run heavier benches (wikitext / join battery)? y/N", "N")
-    if ans.lower() == "y":
+    if _ask("Run heavier benches? y/N", "N").lower() == "y":
         print(
-            "Heavy benches:\n"
             "  python experiments/stereo_cross_activation/matryoshka_distill.py\n"
-            "  python experiments/stereo_cross_activation/cross_model_join.py\n"
-            "Feel-tests: python -m demo tour"
+            "  python experiments/stereo_cross_activation/cross_model_join.py"
         )
 
 
 def do_publish():
+    mode = _ask(
+        "Publish: gpt2-suite (2 repos + READMEs) / single-bundle",
+        "gpt2-suite",
+    )
+    if mode.startswith("gpt2"):
+        from . import gpt2_suite
+
+        gpt2_suite.publish_gpt2_suite(
+            private=_ask("Private? y/N", "N").lower() == "y"
+        )
+        return
     bundles = catalog.list_bundles()
     if not bundles:
-        if _ask("No bundles. Package GPT-2 Matryoshka first? y/N", "y").lower() == "y":
-            convert.package_gpt2_matryoshka()
+        if _ask("Package GPT-2 suite first? y/N", "y").lower() == "y":
+            from . import gpt2_suite
+
+            gpt2_suite.package_gpt2_suite()
             bundles = catalog.list_bundles()
     e = _pick(bundles)
     if not e:
         return
-    repo = _ask("HF repo id", catalog.HF_GPT2_DEFAULT)
+    default_repo = (
+        catalog.HF_JOIN_DEFAULT
+        if "distil" in e.name.lower()
+        else catalog.HF_GPT2_DEFAULT
+    )
+    repo = _ask("HF repo id", default_repo)
     private = _ask("Private? y/N", "N").lower() == "y"
     try:
+        from .gpt2_suite import _copy_card
+
+        if "distil" in e.name.lower():
+            _copy_card("vera-distilgpt2-join", catalog.BUNDLES / e.name)
+        elif "gpt2" in e.name.lower():
+            _copy_card("vera-gpt2-matryoshka", catalog.BUNDLES / e.name)
         publish_bundle(e.name, repo_id=repo, private=private)
     except Exception as ex:
         print(f"Publish failed: {ex}")
-        print("Set HF_TOKEN or run huggingface-cli login, then retry.")
+        print("Set HF_TOKEN or huggingface-cli login, then retry.")
 
 
 def main_loop():

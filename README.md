@@ -433,12 +433,12 @@ export VERA_ARTIFACTS=/path/to/dir_with_pt_and_npz
 
 python -m vera ui                 # インタラクティブ CUI
 python -m vera models             # Ollama / bundles / artifacts / HF
-python -m vera convert --package-gpt2
-python -m vera chat --model bundle:gpt2-matryoshka --mouth vera
-# または Ollama を口に:  --mouth ollama:qwen3.5:9b
-python -m vera verify --model bundle:gpt2-matryoshka
-# HF ログイン後:
-python -m vera publish --bundle gpt2-matryoshka
+python -m vera convert --package-gpt2-suite   # 2 bundles + Hub README
+python -m vera download-gpt2-suite            # Hub から2リポ取得
+python -m vera publish --gpt2-suite           # 両方を HF に投稿（要 HF_TOKEN）
+# Hub 予定:
+#   Ag3497120/vera-gpt2-matryoshka
+#   Ag3497120/vera-distilgpt2-join
 ```
 
 重み vs フックの説明: [`vera/WEIGHTS_VS_HOOKS.md`](./vera/WEIGHTS_VS_HOOKS.md)

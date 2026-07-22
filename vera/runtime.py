@@ -300,23 +300,55 @@ def export_bundle(
     rank: int = 256,
     kind: str = "hook_container",
     notes: str = "",
+    n_layer: Optional[int] = None,
+    hidden_size: Optional[int] = None,
 ) -> Path:
     """Package trained weights + basis into a portable Vera bundle."""
     import torch
-    from transformers import AutoModelForCausalLM
+    from transformers import AutoConfig, AutoModelForCausalLM
 
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    model = AutoModelForCausalLM.from_pretrained(base_model)
-    sd = torch.load(ckpt, map_location="cpu", weights_only=True)
-    model.load_state_dict(sd, strict=False)
-    # GPT-2 ties wte/lm_head — safetensors rejects shared storage unless handled.
-    try:
-        from safetensors.torch import save_model as st_save_model
+    raw = torch.load(ckpt, map_location="cpu", weights_only=False)
+    sd = raw["state_dict"] if isinstance(raw, dict) and "state_dict" in raw else raw
+    if not isinstance(sd, dict):
+        raise TypeError(f"Unexpected checkpoint type: {type(raw)}")
 
-        st_save_model(model, str(out_dir / "model.safetensors"))
+    model = None
+    try:
+        model = AutoModelForCausalLM.from_pretrained(
+            base_model, local_files_only=True
+        )
+        model.load_state_dict(sd, strict=False)
     except Exception:
-        torch.save(model.state_dict(), out_dir / "pytorch_model.bin")
+        try:
+            model = AutoModelForCausalLM.from_pretrained(base_model)
+            model.load_state_dict(sd, strict=False)
+        except Exception:
+            model = None
+
+    if model is not None:
+        try:
+            from safetensors.torch import save_model as st_save_model
+
+            st_save_model(model, str(out_dir / "model.safetensors"))
+        except Exception:
+            torch.save(model.state_dict(), out_dir / "pytorch_model.bin")
+        n_layer = model.config.n_layer
+        hidden_size = model.config.n_embd
+    else:
+        # Offline fallback: write the state dict as-is
+        flat = {k: v.contiguous() for k, v in sd.items() if torch.is_tensor(v)}
+        try:
+            from safetensors.torch import save_file
+
+            save_file(flat, str(out_dir / "model.safetensors"))
+        except Exception:
+            torch.save(flat, out_dir / "pytorch_model.bin")
+        cfg = AutoConfig.from_pretrained(base_model, local_files_only=True)
+        n_layer = n_layer or getattr(cfg, "n_layer", getattr(cfg, "num_hidden_layers", 0))
+        hidden_size = hidden_size or getattr(cfg, "n_embd", getattr(cfg, "hidden_size", 0))
+
     z = np.load(basis)
     if "P" in z.files:
         P = z["P"][:, :rank]
@@ -332,8 +364,8 @@ def export_bundle(
         kind=kind,
         base_model=base_model,
         rank=rank,
-        n_layer=model.config.n_layer,
-        hidden_size=model.config.n_embd,
+        n_layer=int(n_layer),
+        hidden_size=int(hidden_size),
         notes=notes
         or (
             "Weights: fine-tuned under stereo-cross constraint. "

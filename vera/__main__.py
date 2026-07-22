@@ -24,8 +24,15 @@ def main(argv=None):
 
     p = sub.add_parser("convert", help="package GPT-2 Matryoshka or smoke-convert")
     p.add_argument("--package-gpt2", action="store_true")
+    p.add_argument("--package-gpt2-suite", action="store_true",
+                   help="package Matryoshka GPT-2 + DistilGPT2 join (2 bundles)")
     p.add_argument("--smoke-hf", type=str, default="", help="HF id for smoke basis")
     p.add_argument("--name", type=str, default="")
+
+    sub.add_parser(
+        "download-gpt2-suite",
+        help="download BOTH Hub repos (Matryoshka GPT-2 + DistilGPT2 join)",
+    )
 
     p = sub.add_parser("chat", help="useful chat with coord memory")
     p.add_argument("--model", type=str, default="bundle:gpt2-matryoshka")
@@ -36,8 +43,10 @@ def main(argv=None):
     p.add_argument("--model", type=str, default="bundle:gpt2-matryoshka")
     p.add_argument("--rank", type=int, default=256)
 
-    p = sub.add_parser("publish", help="upload bundle to Hugging Face")
+    p = sub.add_parser("publish", help="upload bundle(s) to Hugging Face")
     p.add_argument("--bundle", type=str, default="gpt2-matryoshka")
+    p.add_argument("--gpt2-suite", action="store_true",
+                   help="publish both GPT-2 suite repos with model cards")
     p.add_argument("--repo", type=str, default="")
     p.add_argument("--private", action="store_true")
 
@@ -68,15 +77,24 @@ def main(argv=None):
         return
 
     if args.cmd == "convert":
-        from . import convert
+        from . import convert, gpt2_suite
 
-        if args.package_gpt2 or not args.smoke_hf:
+        if args.package_gpt2_suite:
+            a, b = gpt2_suite.package_gpt2_suite()
+            print(f"Packaged suite:\n  {a}\n  {b}")
+        elif args.package_gpt2 or not args.smoke_hf:
             path = convert.package_gpt2_matryoshka(args.name or "gpt2-matryoshka")
             print(f"Packaged → {path}")
         else:
             name = args.name or args.smoke_hf.replace("/", "-")
             path = convert.smoke_basis_for_hf(args.smoke_hf, name)
             print(f"Smoke → {path}")
+        return
+
+    if args.cmd == "download-gpt2-suite":
+        from . import gpt2_suite
+
+        gpt2_suite.download_gpt2_suite()
         return
 
     if args.cmd == "chat":
@@ -94,12 +112,16 @@ def main(argv=None):
     if args.cmd == "publish":
         from .publish_hf import publish_bundle
         from .catalog import HF_GPT2_DEFAULT
+        from . import gpt2_suite
 
-        publish_bundle(
-            args.bundle,
-            repo_id=args.repo or HF_GPT2_DEFAULT,
-            private=args.private,
-        )
+        if args.gpt2_suite:
+            gpt2_suite.publish_gpt2_suite(private=args.private)
+        else:
+            publish_bundle(
+                args.bundle,
+                repo_id=args.repo or HF_GPT2_DEFAULT,
+                private=args.private,
+            )
         return
 
 
