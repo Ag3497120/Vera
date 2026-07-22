@@ -425,28 +425,34 @@ Part II で確立した容れ物（r=256 蒸留済み生徒）を使い、構想
 
 **→ 詳細は [`REPRODUCE.md`](./REPRODUCE.md)**（環境構築・全コマンド・チェックポイント再生成）。
 
-**→ 体感デモは [`demo/`](./demo/)** — GPT-2 で効果を触る CLI + 可視化 + 協力募集:
+**→ 実用 CLI は [`vera/`](./vera/)**（Ollama 一覧・変換・対話メモリ・検証・HF 公開）:
 
 ```bash
 pip install -r requirements.txt
 export VERA_ARTIFACTS=/path/to/dir_with_pt_and_npz
-python -m demo status
-python -m demo tour
-python -m demo vision --open   # demo/vision.html
+
+python -m vera ui                 # インタラクティブ CUI
+python -m vera models             # Ollama / bundles / artifacts / HF
+python -m vera convert --package-gpt2
+python -m vera chat --model bundle:gpt2-matryoshka --mouth vera
+# または Ollama を口に:  --mouth ollama:qwen3.5:9b
+python -m vera verify --model bundle:gpt2-matryoshka
+# HF ログイン後:
+python -m vera publish --bundle gpt2-matryoshka
 ```
 
-- [`demo/README.md`](./demo/README.md) — 使い方  
-- [`demo/vision.html`](./demo/vision.html) — 実証マップとスケールアップ構想の可視化  
-- [`demo/CALL_FOR_COLLABORATORS.md`](./demo/CALL_FOR_COLLABORATORS.md) — 9B 接合などを回せる協力者向け
+重み vs フックの説明: [`vera/WEIGHTS_VS_HOOKS.md`](./vera/WEIGHTS_VS_HOOKS.md)
+
+体感ツアー（旧デモ）: `python -m demo tour` / [`demo/vision.html`](./demo/vision.html) / [`demo/CALL_FOR_COLLABORATORS.md`](./demo/CALL_FOR_COLLABORATORS.md)
 
 ```
-experiments/
-├── stereo_cross_bridge/          # Part I: 重み空間（Qwen1.5-0.5B）
-└── stereo_cross_activation/      # Part II–III: 活性空間（GPT-2）+ Step 1–5
-demo/                             # 体感 CLI / vision / call-for-collab
+experiments/   # 研究スクリプト + 結果
+vera/          # 実用ランタイム + CUI + 変換/公開
+demo/          # ショーケース / 可視化 / 協力募集
+bundles/       # ローカル変換成果（git 外・大容量）
 ```
 
-巨大な `.pt` は GitHub 制限のため未同梱——`REPRODUCE.md` / `demo/README.md` で配置または再生成。
+巨大な `.pt` は GitHub 制限のため未同梱。`convert --package-gpt2` が成果物から bundle を作り、`publish` で Hub 配信すると他者は `hf:Ag3497120/vera-gpt2-matryoshka` から取得できます。
 
 ### 実行環境
 
